@@ -136,6 +136,12 @@ public class VideoController {
 
         pbuilder.getInstance().probuild(cmd7);
 
+        String cmd8 = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text=''\" -r 25 "+query+"1.mp4";
+        pbuilder.getInstance().probuild(cmd8);
+        String cmd9 = "cd Activelearning;" + "mkdir " + query;
+        pbuilder.getInstance().probuild(cmd9);
+        String cmd10 = "cd "+ query+".au; ffmpeg -i "+query+"1.mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Activelearning/" + query;
+        pbuilder.getInstance().probuild(cmd10);
 //        String cmd8 = "cd "+ query+".au; "+"mv "+_creationName.getText()+".mp4 ../Creations/";
 //        System.out.println(cmd8);
 //        pbuilder.getInstance().probuild(cmd8);
@@ -198,7 +204,7 @@ public class VideoController {
                 SwitchScenes sw = new SwitchScenes(_Video);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

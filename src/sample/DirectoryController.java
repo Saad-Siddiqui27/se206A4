@@ -22,7 +22,6 @@ public class DirectoryController {
     @FXML
     public void initialize() {
 
-
         _directory.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
         pro.probuild2("ls -d *.au 2> /dev/null");
@@ -44,7 +43,7 @@ public class DirectoryController {
            pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
            SwitchScenes sw = new SwitchScenes(_Audio);
            try {
-               sw.switchScenes("../Fxml/AudioMerging.fxml");
+               sw.switchScenes("AudioMerging.fxml");
            } catch (Exception e) {
                e.printStackTrace();
            }
@@ -58,7 +57,7 @@ public class DirectoryController {
             pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
             SwitchScenes sw = new SwitchScenes(_Audio);
             try {
-                sw.switchScenes("../Fxml/VideoCreation.fxml");
+                sw.switchScenes("VideoCreation.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -74,7 +73,7 @@ public class DirectoryController {
                 SwitchScenes sw = new SwitchScenes(_Audio);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

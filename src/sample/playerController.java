@@ -103,7 +103,7 @@ public class playerController {
                 SwitchScenes sw = new SwitchScenes(_Play);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
