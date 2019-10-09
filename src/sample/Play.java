@@ -3,7 +3,6 @@ package sample;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -12,7 +11,7 @@ import javafx.scene.media.MediaView;
 import java.io.File;
 import java.util.List;
 
-public class playerController {
+public class Play {
 
 
 
@@ -103,7 +102,7 @@ public class playerController {
                 SwitchScenes sw = new SwitchScenes(_Play);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

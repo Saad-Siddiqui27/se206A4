@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 import java.util.List;
 
 
-public class DirectoryController {
+public class Directory {
 
 @FXML private Pane _Audio;
 @FXML private ListView _directory;
@@ -44,7 +44,7 @@ public class DirectoryController {
            pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
            SwitchScenes sw = new SwitchScenes(_Audio);
            try {
-               sw.switchScenes("../Fxml/AudioMerging.fxml");
+               sw.switchScenes("/Fxml/AudioMerging.fxml");
            } catch (Exception e) {
                e.printStackTrace();
            }
@@ -58,7 +58,7 @@ public class DirectoryController {
             pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
             SwitchScenes sw = new SwitchScenes(_Audio);
             try {
-                sw.switchScenes("../Fxml/VideoCreation.fxml");
+                sw.switchScenes("/Fxml/Video.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -74,7 +74,7 @@ public class DirectoryController {
                 SwitchScenes sw = new SwitchScenes(_Audio);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

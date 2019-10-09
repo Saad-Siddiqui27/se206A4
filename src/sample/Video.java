@@ -10,15 +10,12 @@ package sample;
         import javafx.scene.layout.Pane;
 
         import javax.imageio.ImageIO;
-        import javax.sound.sampled.AudioFormat;
-        import javax.sound.sampled.AudioInputStream;
-        import javax.sound.sampled.AudioSystem;
         import java.awt.image.BufferedImage;
         import java.io.*;
         import java.util.ArrayList;
         import java.util.List;
 
-public class VideoController {
+public class Video {
 
     @FXML private Pane _Video;
     @FXML private ListView _list;
@@ -187,7 +184,7 @@ public class VideoController {
                 SwitchScenes sw = new SwitchScenes(_Video);
 
                 try {
-                    sw.switchScenes("Directoy.fxml");
+                    sw.switchScenes("/Fxml/Directory.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -205,7 +202,7 @@ public class VideoController {
                 SwitchScenes sw = new SwitchScenes(_Video);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

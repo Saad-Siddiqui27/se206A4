@@ -1,7 +1,5 @@
 package sample;
 
-import com.sun.xml.internal.ws.addressing.WsaActionUtil;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,24 +10,17 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.List;
 import java.util.StringTokenizer;
 
 
 
 //Henry Imports
 
-import java.io.*;
-import com.flickr4java.flickr.*;
-import com.flickr4java.flickr.photos.*;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
-import java.util.concurrent.TimeUnit;
-import javax.imageio.ImageIO;
 
 
-public class CreateController {
+public class CreateAudio {
 
     @FXML
     private Pane _create;
@@ -233,7 +224,7 @@ public void Save() {
             public void run() {
 
                 try {
-                    switchScenes("../Fxml/MainMenu.fxml");
+                    switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

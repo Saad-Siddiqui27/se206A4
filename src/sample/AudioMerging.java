@@ -1,20 +1,10 @@
 package sample;
 
-import com.flickr4java.flickr.Flickr;
-import com.flickr4java.flickr.FlickrException;
-import com.flickr4java.flickr.REST;
-import com.flickr4java.flickr.photos.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 public class AudioMerging {
@@ -161,7 +151,7 @@ public class AudioMerging {
                 SwitchScenes sw = new SwitchScenes(_creation);
 
                 try {
-                    sw.switchScenes("../Fxml/MainMenu.fxml");
+                    sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -180,7 +170,7 @@ public class AudioMerging {
                 SwitchScenes sw = new SwitchScenes(_creation);
 
                 try {
-                    sw.switchScenes("../Fxml/Directoy.fxml");
+                    sw.switchScenes("/Fxml/Directory.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

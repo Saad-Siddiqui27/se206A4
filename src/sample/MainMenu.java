@@ -8,14 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class MainMenuController {
+public class MainMenu {
 
     @FXML
     Pane _Menu;
@@ -37,7 +33,7 @@ public class MainMenuController {
 
     public void switchToCreate() {
         try {
-            switchScenes("../Fxml/create.fxml");
+            switchScenes("/Fxml/CreateAudio.fxml");
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -53,7 +49,7 @@ public class MainMenuController {
 
 
         try {
-            sw.switchScenes("../Fxml/Directoy.fxml");
+            sw.switchScenes("/Fxml/Directory.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,7 +60,7 @@ public class MainMenuController {
             SwitchScenes sw = new SwitchScenes(_Menu);
 
             try {
-                sw.switchScenes("../Fxml/Play.fxml");
+                sw.switchScenes("/Fxml/Play.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
