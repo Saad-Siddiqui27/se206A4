@@ -6,7 +6,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="_Play" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../CSS/Play.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Play">
+<AnchorPane fx:id="_Play" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../CSS/Play.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Play">
    <children>
       <MediaView fx:id="_view" fitHeight="400.0" fitWidth="400.0" layoutX="655.0" layoutY="43.0" />
       <Button layoutX="234.0" layoutY="20.0" mnemonicParsing="false" onAction="#play" text="play" />
