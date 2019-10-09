@@ -19,5 +19,6 @@
             <Font size="33.0" />
          </font></Text>
       <Button layoutX="398.0" layoutY="266.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button layoutX="399.0" layoutY="94.0" mnemonicParsing="false" onAction="#play" opacity="0.86" text="Play" />
    </children>
 </AnchorPane>

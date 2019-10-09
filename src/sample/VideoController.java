@@ -24,6 +24,8 @@ public class VideoController {
     @FXML private ListView _list;
     @FXML private TextField _numpics;
     @FXML private TextField _creationName;
+    @FXML
+    private CheckBox music;
 
     private String num ;
 
@@ -125,7 +127,7 @@ public class VideoController {
         }
 
 
-        System.out.println(s);
+
         time = number/time;
         String cmd = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text='"+query+"'\" -r 25 "+query+".mp4";
 
@@ -133,6 +135,11 @@ public class VideoController {
 
 
         String cmd7 = "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+
+        if(music.isSelected()){
+
+            cmd7 = "cd "+ query+".au ;ffmpeg -i ../backgroundMusic.mp3 "+ _list.getSelectionModel().getSelectedItem().toString() + ".wav -filter_complex amix=inputs=2:duration=longest output.mp3; ffmpeg -i "+query+".mp4 -i output.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+        }
 
         pbuilder.getInstance().probuild(cmd7);
 

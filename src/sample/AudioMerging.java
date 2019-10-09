@@ -92,6 +92,14 @@ public class AudioMerging {
     }
 
 
+    public void play(){
+
+
+        String s = "cd "+pbuilder.getInstance().getTerm()+".au ;play "+ _list.getSelectionModel().getSelectedItem().toString()+".wav";
+        pbuilder.getInstance().probuild(s);
+    }
+
+
     public void merge() {
 
 
