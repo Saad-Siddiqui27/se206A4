@@ -11,7 +11,7 @@
       <Button layoutX="462.0" layoutY="105.0" mnemonicParsing="false" onAction="#goInAudioMerge" opacity="0.9" text="Merge Audio" />
       <Button layoutX="468.0" layoutY="330.0" mnemonicParsing="false" onAction="#switchToMain" opacity="0.94" text="Main Menu" />
       <ListView fx:id="_directory" layoutX="12.0" layoutY="50.0" opacity="0.65" prefHeight="330.0" prefWidth="195.0" />
-      <Button layoutX="462.0" layoutY="189.0" mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" stylesheets="@../../CSS/Directory.css" text="Create Video" />
+      <Button layoutX="462.0" layoutY="189.0" mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" text="Create Video" />
       <Text fill="#f20404" layoutX="109.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an Audio">
          <font>
             <Font size="33.0" />

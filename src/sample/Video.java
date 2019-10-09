@@ -57,6 +57,9 @@ public class Video {
 
     public void createVideo() {
 
+//        Creation creation = new Creation(2,_creationName.getText());
+
+
         num = _numpics.getText();
         List<String> n = new ArrayList<>();
         int m = 1;

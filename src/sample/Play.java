@@ -13,6 +13,9 @@ import java.util.List;
 
 public class Play {
 
+    public Play(){
+
+    }
 
 
     @FXML
@@ -90,6 +93,7 @@ public class Play {
     }
 
     public void play(){
+
         Thread object1 = new Thread(new Multi1());
         object1.start();
     }
