@@ -9,7 +9,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Scanner;
 
 public class Play {
 
@@ -28,6 +30,7 @@ public class Play {
     private Button _pause;
     @FXML
     private Button _mute;
+    @FXML private TextField ans;
 
     MediaPlayer player;
 
@@ -39,15 +42,26 @@ public class Play {
     public void initialize(){
         _list.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
-        pro.probuild2("cd Creations; ls *.mp4 2> /dev/null");
+        pro.probuild2("cd Creations; ls 2> /dev/null");
         List<String> str = pro.getStd();
 
         for (int i = 0; i < str.size(); i++) {
-            _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
+            _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 0));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
+    public void confirm() throws FileNotFoundException {
+        File file = new File("Creations/"+_list.getSelectionModel().getSelectedItem()+"/term.txt");
+        Scanner sc = new Scanner(file);
+//        System.out.println(ans.getText());
+        if(ans.getText().equals(sc.next().toString())){
+            System.out.println("yes");
+        }else{
+//            System.out.println();
+            System.out.println("no");
+        }
+    }
 
     public void delete(){
 
@@ -64,7 +78,7 @@ public class Play {
 
                         String topics;
                         topics = _list.getSelectionModel().getSelectedItem().toString();
-                        pbuilder.getInstance().probuild ("cd Creations;"+" rm "+ topics+".mp4");
+                        pbuilder.getInstance().probuild ("cd Creations/; rm -r "+ topics);
 
 //                        initialize();
 
@@ -85,7 +99,7 @@ public class Play {
     }
 
     public void setMedia(){
-        File fileUrl = new File("Creations/"+_list.getSelectionModel().getSelectedItem().toString()+".mp4");
+        File fileUrl = new File("Creations/"+_list.getSelectionModel().getSelectedItem().toString()+"/"+_list.getSelectionModel().getSelectedItem().toString()+".mp4");
         Media video = new Media(fileUrl.toURI().toString());
         player = new MediaPlayer(video);
         player.setAutoPlay(true);

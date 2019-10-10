@@ -14,15 +14,15 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Creation implements Serializable {
+public class Creation {
 
-    private int Priority;
+//    private int Priority;
     private String _creationName;
-    private String query;
+//    private String query;
 
 
-    public Creation(int priority, String CreationName){
-        Priority = priority;
+    public Creation(String CreationName){
+//        Priority = priority;
         _creationName = CreationName;
 //        query = term;
     }

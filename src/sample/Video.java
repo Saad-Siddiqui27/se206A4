@@ -149,7 +149,7 @@ public class Video {
         pbuilder.getInstance().probuild(cmd);
 
 
-        String cmd7 = "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+        String cmd7 = "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
 
         if(music.isSelected()){
 
@@ -157,12 +157,13 @@ public class Video {
 
 
             pbuilder.getInstance().probuild(cmd7);
-            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
             pbuilder.getInstance().probuild(c);
 
         }
 
         pbuilder.getInstance().probuild(cmd7);
+        Creation creation = new Creation(query);
 
     }
 

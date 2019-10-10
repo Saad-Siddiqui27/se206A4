@@ -44,6 +44,7 @@ public class Revise {
             System.out.println("yes");
         }else{
 
+            System.out.println(pbuilder.getInstance().getTerm());
             System.out.println("no");
         }
 
