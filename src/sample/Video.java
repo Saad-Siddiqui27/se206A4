@@ -53,11 +53,26 @@ public class Video {
 
     }
 
-
+//    private ArrayList<Creation> creations = new ArrayList<>();
+//
+//
+//    public ArrayList<Creation> getCreations() {
+//        return creations;
+//    }
 
     public void createVideo() {
 
 //        Creation creation = new Creation(2,_creationName.getText());
+//
+//        creations.add(creation);
+//
+//
+//        File f = new File("creation.txt");
+//        FileOutputStream fos = new FileOutputStream(f);
+//        ObjectOutputStream oos = new ObjectOutputStream(fos);
+//        oos.writeObject(creations);
+
+
 
 
         num = _numpics.getText();
@@ -138,18 +153,16 @@ public class Video {
 
         if(music.isSelected()){
 
-            cmd7 = "cd "+ query+".au ;ffmpeg -i ../backgroundMusic.mp3 "+ _list.getSelectionModel().getSelectedItem().toString() + ".wav -filter_complex amix=inputs=2:duration=longest output.mp3; ffmpeg -i "+query+".mp4 -i output.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+            cmd7 = "cd "+ query+".au; ffmpeg -i ../backgroundMusic.mp3 -i"+ _creationName.getText() +" -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+
+
+            pbuilder.getInstance().probuild(cmd7);
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mv "+_creationName.getText()+".mp4 ../Creations";
+            pbuilder.getInstance().probuild(c);
+
         }
 
         pbuilder.getInstance().probuild(cmd7);
-
-//        String cmd8 = "cd "+ query+".au; "+"mv "+_creationName.getText()+".mp4 ../Creations/";
-//        System.out.println(cmd8);
-//        pbuilder.getInstance().probuild(cmd8);
-
-//        String cmd9 = "mv "+_creationName.getText()+".mp4 ./Creations";
-//        pbuilder.getInstance().probuild(cmd9);
-
 
     }
 

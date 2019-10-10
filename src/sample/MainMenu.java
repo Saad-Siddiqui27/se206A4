@@ -66,6 +66,16 @@ public class MainMenu {
             }
         }
 
+    public void switchToRevise() {
+
+        SwitchScenes sw = new SwitchScenes(_Menu);
+
+        try {
+            sw.switchScenes("/Fxml/Revise.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
