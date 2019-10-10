@@ -11,8 +11,9 @@
    <children>
       <MediaView fx:id="media" fitHeight="200.0" fitWidth="200.0" layoutX="35.0" layoutY="46.0" />
       <Button layoutX="235.0" layoutY="335.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
-      <TextField fx:id="answer" layoutX="379.0" layoutY="322.0" />
+      <TextField fx:id="ans" layoutX="379.0" layoutY="322.0" />
       <ListView fx:id="_list" layoutX="364.0" layoutY="39.0" prefHeight="200.0" prefWidth="200.0" />
       <Button layoutX="73.0" layoutY="322.0" mnemonicParsing="false" onAction="#switchToMain" text="MainMenu" />
+      <Button layoutX="116.0" layoutY="69.0" mnemonicParsing="false" onAction="#go" text="ok" />
    </children>
 </AnchorPane>

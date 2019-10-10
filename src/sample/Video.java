@@ -285,7 +285,7 @@ public class Video {
                 String cmd5 = "mv *.jpg " + query + ".au";
                 pbuilder.getInstance().probuild(cmd5);
 
-                File f = new File(_list.getSelectionModel().getSelectedItem().toString()+".wav");
+//                File f = new File(_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 pbuilder.getInstance().probuild2("cd "+ query+".au;" +" soxi -D "+_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 List<String> time1 = pbuilder.getInstance().getStd();
                 Double time = Double.parseDouble( time1.get(0));

@@ -110,6 +110,7 @@ public class Play {
 
         Thread object1 = new Thread(new Multi1());
         object1.start();
+
     }
 
 
