@@ -30,7 +30,7 @@
             <CheckMenuItem fx:id="_voice2" mnemonicParsing="false" text="Default Voice" />
         </items>
       </MenuButton>
-      <Button layoutX="437.0" layoutY="287.0" mnemonicParsing="false" onAction="#select" opacity="0.89" text="Tranfer chosen text" />
+      <Button layoutX="410.0" layoutY="285.0" mnemonicParsing="false" onAction="#select" opacity="0.89" text="Tranfer chosen text" />
       <TextField fx:id="_audioName" layoutX="794.0" layoutY="360.0" promptText="Enter Audio name:" />
       <Text fill="#21f552" fontSmoothingType="LCD" layoutX="403.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="length no larger than 40 ">
          <font>

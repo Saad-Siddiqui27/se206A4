@@ -62,15 +62,6 @@ public class Video {
 
     public void createVideo() {
 
-//        Creation creation = new Creation(2,_creationName.getText());
-//
-//        creations.add(creation);
-//
-//
-//        File f = new File("creation.txt");
-//        FileOutputStream fos = new FileOutputStream(f);
-//        ObjectOutputStream oos = new ObjectOutputStream(fos);
-//        oos.writeObject(creations);
 
 
 
@@ -135,21 +126,25 @@ public class Video {
         for(int j=1 ; j<=number;j++){
             s.append(query+j+".jpg ");
 
-
-
-
-
         }
-
-
 
         time = number/time;
         String cmd = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text='"+query+"'\" -r 25 "+query+".mp4";
 
         pbuilder.getInstance().probuild(cmd);
 
+        //here
+        String cmd2 = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text=''\" -r 25 "+query+"revision.mp4";
+
+        pbuilder.getInstance().probuild(cmd2);
+        //here
+
 
         String cmd7 = "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+
+        //here
+        String cmd8 = "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; "+"mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4";
+
 
         if(music.isSelected()){
 
@@ -163,7 +158,8 @@ public class Video {
         }
 
         pbuilder.getInstance().probuild(cmd7);
-        Creation creation = new Creation(query);
+        pbuilder.getInstance().probuild(cmd8);
+//        Creation creation = new Creation(query);
 
     }
 
