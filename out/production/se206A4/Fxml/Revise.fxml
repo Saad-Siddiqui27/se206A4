@@ -9,7 +9,7 @@
 <AnchorPane fx:id="revise" prefHeight="600.0" prefWidth="600.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
    <children>
       <MediaView fx:id="media" fitHeight="400.0" fitWidth="500.0" layoutX="9.0" layoutY="14.0" />
-      <Button fx:id="next" layoutX="558.0" layoutY="548.0" mnemonicParsing="false" onAction="#go" text="Take Quiz" />
+      <Button fx:id="next" layoutX="502.0" layoutY="553.0" mnemonicParsing="false" onAction="#go" text="Take Quiz" />
       <Button layoutX="40.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToMain" text="MainMenu" />
       <Button fx:id="confirmButton" layoutX="288.0" layoutY="503.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
       <TextField fx:id="ans" alignment="CENTER" layoutX="239.0" layoutY="461.0" />

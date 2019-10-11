@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckMenuItem?>
-<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,12 +23,6 @@
       <Button layoutX="257.0" layoutY="43.0" mnemonicParsing="false" onAction="#search" opacity="0.88" text="search" />
       <Button layoutX="465.0" layoutY="129.0" mnemonicParsing="false" onAction="#play" opacity="0.83" text="Preview" />
       <Button layoutX="658.0" layoutY="360.0" mnemonicParsing="false" onAction="#Save" opacity="0.91" text="Save Audio" />
-      <MenuButton fx:id="_menubutton" layoutX="462.0" layoutY="211.0" mnemonicParsing="false" opacity="0.89" text="Voices">
-        <items>
-            <CheckMenuItem fx:id="_voice1" mnemonicParsing="false" text="Auckland Voice" />
-            <CheckMenuItem fx:id="_voice2" mnemonicParsing="false" text="Default Voice" />
-        </items>
-      </MenuButton>
       <Button layoutX="410.0" layoutY="285.0" mnemonicParsing="false" onAction="#select" opacity="0.89" text="Tranfer chosen text" />
       <TextField fx:id="_audioName" layoutX="794.0" layoutY="360.0" promptText="Enter Audio name:" />
       <Text fill="#21f552" fontSmoothingType="LCD" layoutX="403.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="length no larger than 40 ">
@@ -41,5 +34,6 @@
             <Font size="17.0" />
          </font>
       </Text>
+      <ChoiceBox fx:id="_menubutton" layoutX="428.0" layoutY="211.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

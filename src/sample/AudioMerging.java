@@ -23,7 +23,7 @@ public class AudioMerging {
     public void initialize() {
 
 //
-        String s = pbuilder.getInstance().getTerm();
+        String s = "\""+pbuilder.getInstance().getTerm()+"\"";
 //        System.out.println(s);
 //        s = s.substring(1,s.length()-1);
 //        pbuilder.getInstance().probuild2("cd "+s+".au");
@@ -85,7 +85,7 @@ public class AudioMerging {
     public void play(){
 
 
-        String s = "cd "+pbuilder.getInstance().getTerm()+".au ;play "+ _list.getSelectionModel().getSelectedItem().toString()+".wav";
+        String s = "cd \""+pbuilder.getInstance().getTerm()+"\".au ;play "+ _list.getSelectionModel().getSelectedItem().toString()+".wav";
         pbuilder.getInstance().probuild(s);
     }
 
@@ -114,7 +114,7 @@ public class AudioMerging {
                 files.append(Files.get(i) + ".wav ");
 
             }
-            String s = pbuilder.getInstance().getTerm();
+            String s = "\""+pbuilder.getInstance().getTerm()+"\"";
 
             pbuilder.getInstance().probuild2("cd " + s + ".au;pwd");
 

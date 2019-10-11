@@ -31,7 +31,7 @@ public class CreateAudio {
     @FXML
     private TextArea textArea2;
     @FXML
-    private MenuButton _menubutton;
+    private ChoiceBox _menubutton;
     @FXML
     private CheckMenuItem _voice1;
     @FXML
@@ -53,6 +53,14 @@ public class CreateAudio {
     String num;
     int number;
     //done
+
+
+    @FXML
+    public void initialize(){
+        _menubutton.getItems().addAll("Auckland Voice","Default Voice");
+        _menubutton.setValue("Default Voice");
+    }
+
 
 
     public void search() {
@@ -93,14 +101,14 @@ public void play(){
 
 
     try {
-        if(_voice1.isSelected()) {
+        if(_menubutton.getValue()=="Auckland Voice") {
 
             FileWriter fw = new FileWriter(f);
             fw.write("(voice_akl_nz_jdt_diphone) ;; select Jono" + " \n(SayText \"" + str + "\")");
             fw.close();
             String cmd3 = "festival -b " + f;
             pbuild(cmd3);
-        }else if(_voice2.isSelected()){
+        }else if(_menubutton.getValue()=="Default Voice"){
             FileWriter fw = new FileWriter(f);
             fw.write("(voice_kal_diphone) ;; select Jono" + " \n(SayText \"" + str + "\")");
             fw.close();
@@ -143,9 +151,9 @@ public void Save() {
             String str2 = textArea2.getText();
 
 
-            if (_voice1.isSelected()) {
+            if (_menubutton.getValue()=="Auckland Voice") {
                 helpSave(str2, "(voice_akl_nz_jdt_diphone) ");
-            } else if (_voice2.isSelected()) {
+            } else if (_menubutton.getValue()=="Default Voice") {
                 helpSave(str2, "(voice_kal_diphone) ");
 
             }
@@ -179,10 +187,10 @@ public void Save() {
         fw.close();
         File audio = new File(_textfield.getText());
         if(! audio.exists()) {
-            String cmd4 = "mkdir " + _textfield.getText()+".au";
+            String cmd4 = "mkdir \"" + _textfield.getText()+"\".au";
             pbuilder.getInstance().probuild(cmd4);
         }
-        String cmd3 = "text2wave -o "+_textfield.getText()+".au/"+_audioName.getText()+".wav "+f2+" -eval "+f;
+        String cmd3 = "text2wave -o \""+_textfield.getText()+"\".au/"+_audioName.getText()+".wav "+f2+" -eval "+f;
         pbuild(cmd3);
         System.out.println(_audioName.getText() + " saved");
 

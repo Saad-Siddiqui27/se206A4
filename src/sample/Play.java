@@ -51,17 +51,6 @@ public class Play {
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
-    public void confirm() throws FileNotFoundException {
-        File file = new File("Creations/"+_list.getSelectionModel().getSelectedItem()+"/term.txt");
-        Scanner sc = new Scanner(file);
-//        System.out.println(ans.getText());
-        if(ans.getText().equals(sc.next().toString())){
-            System.out.println("yes");
-        }else{
-//            System.out.println();
-            System.out.println("no");
-        }
-    }
 
     public void delete(){
 
@@ -76,13 +65,12 @@ public class Play {
 
                     try{
 
+                        if(player!=null){
+                            player.stop();
+                        }
                         String topics;
                         topics = _list.getSelectionModel().getSelectedItem().toString();
                         pbuilder.getInstance().probuild ("cd Creations/; rm -r "+ topics);
-
-//                        initialize();
-
-
 
                     } catch(Exception e)
 
@@ -108,6 +96,9 @@ public class Play {
 
     public void play(){
 
+        if(player!=null){
+            player.stop();
+        }
         Thread object1 = new Thread(new Multi1());
         object1.start();
 
@@ -118,6 +109,9 @@ public class Play {
         Platform.runLater(new Multi() {
             @Override
             public void run() {
+                if(player!=null){
+                    player.stop();
+                }
                 SwitchScenes sw = new SwitchScenes(_Play);
 
                 try {

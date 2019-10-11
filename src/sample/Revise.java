@@ -114,6 +114,9 @@ public class Revise {
         Platform.runLater(new Multi() {
             @Override
             public void run() {
+                if(player!=null){
+                    player.stop();
+                }
                 SwitchScenes sw = new SwitchScenes(revise);
 
                 try {
