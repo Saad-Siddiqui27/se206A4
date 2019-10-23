@@ -10,11 +10,11 @@
 
 <AnchorPane fx:id="_Play" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../CSS/Play.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Play">
    <children>
-      <Button layoutX="234.0" layoutY="20.0" mnemonicParsing="false" onAction="#play" text="play" />
+      <Button fx:id="play" layoutX="234.0" layoutY="20.0" mnemonicParsing="false" onAction="#play" text="play" />
       <ListView fx:id="_list" layoutX="59.0" layoutY="59.0" opacity="0.76" prefHeight="423.0" prefWidth="318.0" />
-      <Button layoutX="776.0" layoutY="547.0" mnemonicParsing="false" onAction="#MainMenu" text="Main Menu" />
+      <Button fx:id="menu" layoutX="776.0" layoutY="547.0" mnemonicParsing="false" onAction="#MainMenu" text="Main Menu" />
       <Text layoutX="65.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a video to play:" />
-      <Button layoutX="111.0" layoutY="547.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
+      <Button fx:id="delete" layoutX="111.0" layoutY="547.0" mnemonicParsing="false" onAction="#delete" text="Delete" />
       <VBox layoutX="540.0" layoutY="56.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
             <MediaView fx:id="_view" fitHeight="400.0" fitWidth="400.0" />

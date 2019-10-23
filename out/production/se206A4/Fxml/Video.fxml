@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="_Video" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/Video.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
+<AnchorPane fx:id="_Video" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Video.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
    <children>
-      <TextField fx:id="_numpics" layoutX="243.0" layoutY="111.0" opacity="0.79" prefHeight="26.0" prefWidth="230.0" promptText="Enter the number of images:" />
-      <Button layoutX="300.0" layoutY="216.0" mnemonicParsing="false" onAction="#createVideo" text="Create" />
-      <Button layoutX="462.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory" />
-      <Button layoutX="32.0" layoutY="354.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu" />
-      <ListView fx:id="_list" layoutX="14.0" layoutY="37.0" opacity="0.71" prefHeight="312.0" prefWidth="200.0" />
-      <TextField fx:id="_creationName" layoutX="242.0" layoutY="167.0" opacity="0.83" prefHeight="26.0" prefWidth="230.0" promptText="Enter the name for the creation:" />
-      <Text fill="#e80303" layoutX="39.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an audio file:" />
-      <CheckBox fx:id="music" layoutX="424.0" layoutY="220.0" mnemonicParsing="false" text="Background Music" />
+      <Button layoutX="621.0" layoutY="529.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory" />
+      <Button layoutX="30.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu" />
+      <VBox layoutY="-2.0" prefHeight="58.0" prefWidth="804.0">
+         <children>
+            <Text fill="#e80303" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an audio file:">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="300.0" right="50.0" top="20.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="495.0" prefWidth="761.0">
+         <children>
+            <HBox prefHeight="503.0" prefWidth="749.0" spacing="100.0">
+               <children>
+                  <VBox prefHeight="318.0" prefWidth="216.0">
+                     <children>
+                        <ListView fx:id="_list" opacity="0.71" prefHeight="403.0" prefWidth="271.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="415.0" prefWidth="286.0" spacing="40.0">
+                     <children>
+                        <TextField fx:id="_numpics" opacity="0.79" prefHeight="26.0" prefWidth="230.0" promptText="Enter the number of images:" />
+                        <TextField fx:id="_creationName" opacity="0.83" prefHeight="26.0" prefWidth="230.0" promptText="Enter the name for the creation:" />
+                        <VBox prefHeight="200.0" prefWidth="256.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="251.0" spacing="40.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#createVideo" text="Create" />
+                                    <CheckBox fx:id="music" mnemonicParsing="false" text="Background Music" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="40.0" right="40.0" top="80.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

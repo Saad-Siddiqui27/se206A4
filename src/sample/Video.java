@@ -36,15 +36,13 @@ public class Video {
 
 
 
-        String s ="\""+pbuilder.getInstance().getTerm()+"\"";
+        String s =pbuilder.getInstance().getTerm();
 
 //        pbuilder.getInstance().probuild2("cd "+s+".au");
 
-
-
         _list.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
-        pro.probuild2("cd "+s+".au; "+"ls *.wav 2> /dev/null");
+        pro.probuild2("cd \""+s+"\".au; "+"ls *.wav 2> /dev/null");
         List<String> str = pro.getStd();
 
         for (int i = 0; i < str.size(); i++) {
@@ -56,6 +54,7 @@ public class Video {
 
 
     public void createVideo() {
+
 
         num = _numpics.getText();
         List<String> n = new ArrayList<>();
@@ -119,50 +118,40 @@ public class Video {
             System.out.println(query);
 
         }
-        String query = "\""+pbuilder.getInstance().getTerm()+".au\"";
 
         time = number/time;
-        String cmd = "cd "+ query+"; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text='"+query+"' -r 25 "+query+".mp4";
+        String cmd = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text='\""+query+"\"'\" -r 25 \""+query+"\".mp4";
 
         pbuilder.getInstance().probuild(cmd);
 
         //here
-        String cmd2 = "cd "+ query+"; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text='' -r 25 "+query+"revision.mp4";
+        String cmd2 = "cd "+ query+".au; cat " +s.toString()+ "| ffmpeg -framerate "+time+" -f image2pipe -i - -vf \"scale=iw*min(1920/iw\\,1080/ih):ih*min(1920/iw\\,1080/ih), pad=1920:1080:(1920-iw*min(1920/iw\\,1080/ih))/2:(1080-ih*min(1920/iw\\,1080/ih))/2,format=yuv420p,drawtext=fontfile=myfont.ttf:fontsize=100: fontcolor=white:shadowx=2:x=(w-text_w)/2:y=(h-text_h)/2:text=''\" -r 25 "+query+"revision.mp4; rm *.jpg";
 
         pbuilder.getInstance().probuild(cmd2);
-        //here
-
-
-        String cmd7 = "cd "+ query+"; ffmpeg -i "+query+".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+"mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
-
-        //here
-        String cmd8 = "cd "+ query+"; ffmpeg -i "+query+"revision.mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; "+"mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4";
 
 
         if(music.isSelected()){
 
-            cmd7 = "cd "+ query+"; ffmpeg -i ../backgroundMusic.mp3 -i"+ _creationName.getText() +" -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+           String cmd9 = "cd "+ query+".au; ffmpeg -i ../backgroundMusic.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
 
 
-            pbuilder.getInstance().probuild(cmd7);
-            String c =  "cd "+ query+"; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+            pbuilder.getInstance().probuild(cmd9);
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
             pbuilder.getInstance().probuild(c);
-
-
-            cmd = "cd "+ query+"; ffmpeg -i ../backgroundMusic.mp3 -i"+ _creationName.getText() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
-
-
-            pbuilder.getInstance().probuild(cmd);
-            String c2 =  "cd "+ query+"; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+";echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
             pbuilder.getInstance().probuild(c2);
 
+
+        }else {
+
+            String cmd7 = "cd " + query + ".au; ffmpeg -i " + query + ".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText() + ".mp4; " + "mkdir ../Creations/" + _creationName.getText() + ";echo " + query + " > term.txt; mv -t ../Creations/" + _creationName.getText() + " term.txt " + _creationName.getText() + ".mp4";
+
+            String cmd8 = "cd " + query + ".au; ffmpeg -i " + query + "revision.mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText() + "revision.mp4; " + "mkdir ../Creations/" + _creationName.getText() + ";echo " + query + " > term.txt; mv -t ../Creations/" + _creationName.getText() + " term.txt " + _creationName.getText() + "revision.mp4";
+
+            pbuilder.getInstance().probuild(cmd7);
+            pbuilder.getInstance().probuild(cmd8);
+
         }
-
-
-
-        pbuilder.getInstance().probuild(cmd7);
-        pbuilder.getInstance().probuild(cmd8);
-//        Creation creation = new Creation(query);
 
     }
 
@@ -285,15 +274,10 @@ public class Video {
                 pbuilder.getInstance().probuild(cmd5);
 
 //                File f = new File(_list.getSelectionModel().getSelectedItem().toString()+".wav");
-                pbuilder.getInstance().probuild2("cd \""+ query+"\".au;" +" soxi -D "+_list.getSelectionModel().getSelectedItem().toString()+".wav");
+                pbuilder.getInstance().probuild2("cd "+ query+".au;" +" soxi -D "+_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 List<String> time1 = pbuilder.getInstance().getStd();
                 Double time = Double.parseDouble( time1.get(0));
                 System.out.println("time ="+time);
-
-//                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream();
-//                AudioFormat format = audioInputStream.getFormat();
-//                long frames = audioInputStream.getFrameLength();
-//                double durationInSeconds = (frames + 0.0) / format.getFrameRate();
 
 
                 CombineVideo(time);
