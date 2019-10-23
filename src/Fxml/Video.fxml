@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,7 +36,7 @@
                         <ListView fx:id="_list" opacity="0.71" prefHeight="403.0" prefWidth="271.0" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="415.0" prefWidth="286.0" spacing="40.0">
+                  <VBox prefHeight="415.0" prefWidth="366.0" spacing="40.0">
                      <children>
                         <TextField fx:id="_numpics" opacity="0.79" prefHeight="26.0" prefWidth="230.0" promptText="Enter the number of images:" />
                         <TextField fx:id="_creationName" opacity="0.83" prefHeight="26.0" prefWidth="230.0" promptText="Enter the name for the creation:" />
@@ -45,7 +45,7 @@
                               <HBox prefHeight="100.0" prefWidth="251.0" spacing="40.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#createVideo" text="Create" />
-                                    <CheckBox fx:id="music" mnemonicParsing="false" text="Background Music" />
+                                    <ChoiceBox fx:id="musics" prefWidth="150.0" />
                                  </children>
                               </HBox>
                            </children>
