@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="JavaFXApp.jnlp">
+  <information>
+    <title>JavaFXApp</title>
+    <vendor>Unknown</vendor>
+    <description>JavaFXApp</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="JavaFXApp.jar" size="5080848" download="eager" />
+    <jar href="libs/flickr4java-3.0.1.jar" size="291898" download="eager" />
+    <jar href="libs/jackson-annotations-2.9.0.jar" size="66519" download="eager" />
+    <jar href="libs/jackson-core-2.9.9.jar" size="325632" download="eager" />
+    <jar href="libs/jackson-databind-2.9.9.jar" size="1348108" download="eager" />
+    <jar href="libs/scribejava-apis-6.6.3.jar" size="116785" download="eager" />
+    <jar href="libs/scribejava-core-6.2.0.jar" size="120232" download="eager" />
+    <jar href="libs/slf4j-api-1.7.25.jar" size="41203" download="eager" />
+    <jar href="libs/slf4j-nop-1.7.26.jar" size="4010" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="sample.Main"  name="JavaFXApp" />
+  <update check="background"/>
+</jnlp>

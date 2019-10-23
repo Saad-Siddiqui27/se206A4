@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+
+
+<AnchorPane fx:id="revise" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
+   <children>
+      <HBox layoutY="41.0" prefHeight="420.0" prefWidth="740.0" spacing="100.0">
+         <children>
+            <MediaView fx:id="media" fitHeight="400.0" fitWidth="500.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="100.0">
+               <children>
+                  <Label fx:id="points" prefHeight="16.0" prefWidth="95.0" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="40.0" />
+         </padding>
+      </HBox>
+      <Button fx:id="next" layoutX="686.0" layoutY="548.0" mnemonicParsing="false" onAction="#go" text="Take Quiz" />
+      <Button layoutX="40.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToMain" text="MainMenu" />
+      <Button fx:id="confirmButton" layoutX="370.0" layoutY="507.0" mnemonicParsing="false" onAction="#confirm" text="Confirm" />
+      <TextField fx:id="ans" alignment="CENTER" layoutX="315.0" layoutY="461.0" />
+      <Label fx:id="wrong" layoutX="315.0" layoutY="548.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label fx:id="noCreations" layoutX="352.0" layoutY="14.0" text="Label" />
+   </children>
+</AnchorPane>

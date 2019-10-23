@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="_Menu" prefHeight="400.0" prefWidth="600.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenuController">
+<AnchorPane fx:id="_Menu" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenu">
    <children>
-      <VBox alignment="CENTER_RIGHT" layoutX="163.0" layoutY="100.0" prefHeight="200.0" prefWidth="215.0" spacing="40.0" stylesheets="@../CSS/Main.css">
+      <VBox alignment="CENTER_RIGHT" layoutX="227.0" layoutY="194.0" prefHeight="200.0" prefWidth="347.0" spacing="40.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#switchToCreate" prefHeight="26.0" prefWidth="148.0" text="Create Audio" />
-            <Button mnemonicParsing="false" onAction="#switchToAudio" prefHeight="26.0" prefWidth="148.0" stylesheets="@../CSS/Main.css" text="Make Creations" />
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
-               <buttons>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#switchToCreate" prefHeight="26.0" prefWidth="148.0" text="Create Audio" />
+                  <Button mnemonicParsing="false" onAction="#switchToAudio" prefHeight="26.0" prefWidth="148.0" text="Make Creations" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
                 <Button mnemonicParsing="false" onAction="#switchToPlay" prefHeight="28.0" prefWidth="145.0" text="Play Creations" />
-               </buttons>
-            </ButtonBar>
+                  <Button mnemonicParsing="false" onAction="#switchToRevise" prefHeight="28.0" prefWidth="145.0" text="Quiz" />
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <Label layoutX="121.0" layoutY="26.0" text="Wikit Application Tool." textFill="#c6c6c6">
+      <Label layoutX="255.0" layoutY="36.0" text="Wikit Application Tool." textFill="#c6c6c6">
          <font>
             <Font size="32.0" />
          </font>
