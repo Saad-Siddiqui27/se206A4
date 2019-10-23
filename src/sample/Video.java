@@ -23,6 +23,8 @@ public class Video {
     @FXML private TextField _creationName;
     @FXML
     private CheckBox music;
+    @FXML
+    private ChoiceBox musics;
 
     private String num ;
 
@@ -49,6 +51,8 @@ public class Video {
             _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        musics.getItems().addAll("Child beat Box","something cool","No music");
+        musics.setValue("No music");
 
     }
 

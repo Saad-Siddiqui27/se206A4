@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="JavaFXApp.jar" size="7318799" download="eager" />
+    <jar href="JavaFXApp.jar" size="8674647" download="eager" />
     <jar href="libs/flickr4java-3.0.1.jar" size="291898" download="eager" />
     <jar href="libs/jackson-annotations-2.9.0.jar" size="66519" download="eager" />
     <jar href="libs/jackson-core-2.9.9.jar" size="325632" download="eager" />

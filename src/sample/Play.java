@@ -79,7 +79,7 @@ public class Play {
                         }
                         String topics;
                         topics = _list.getSelectionModel().getSelectedItem().toString();
-                        pbuilder.getInstance().probuild ("cd Creations/; rm -rfd "+ topics);
+                        pbuilder.getInstance().probuild ("cd Creations/; rm -r "+ topics);
 
                     } catch(Exception e)
 
@@ -90,8 +90,9 @@ public class Play {
 
                 }
             });
+            initialize();
         }
-        initialize();
+
 
     }
 
