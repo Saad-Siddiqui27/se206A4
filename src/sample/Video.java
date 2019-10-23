@@ -134,30 +134,54 @@ public class Video {
         pbuilder.getInstance().probuild(cmd2);
 
 
-        if(music.isSelected()){
-
-           String cmd9 = "cd "+ query+".au; ffmpeg -i ../backgroundMusic.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
-
-
-            pbuilder.getInstance().probuild(cmd9);
-            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
-            pbuilder.getInstance().probuild(c);
-            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
-            pbuilder.getInstance().probuild(c2);
-
-
-        }else {
+        if (musics.getValue().equals("No music")) {
 
             String cmd7 = "cd " + query + ".au; ffmpeg -i " + query + ".mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText() + ".mp4; " + "mkdir ../Creations/" + _creationName.getText() + ";echo " + query + " > term.txt; mv -t ../Creations/" + _creationName.getText() + " term.txt " + _creationName.getText() + ".mp4";
 
             String cmd8 = "cd " + query + ".au; ffmpeg -i " + query + "revision.mp4 -i " + _list.getSelectionModel().getSelectedItem().toString() + ".wav -vcodec copy -strict -2 " + _creationName.getText() + "revision.mp4; " + "mkdir ../Creations/" + _creationName.getText() + ";echo " + query + " > term.txt; mv -t ../Creations/" + _creationName.getText() + " term.txt " + _creationName.getText() + "revision.mp4";
 
-            pbuilder.getInstance().probuild(cmd7);
-            pbuilder.getInstance().probuild(cmd8);
+            helpMusic(cmd7, cmd8);
 
+        }else if(musics.getValue().equals("something cool")){
+
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/backgroundMusic.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+
+            pbuilder.getInstance().probuild(cmd9);
+
+            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
+
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+
+            helpMusic(c, c2);
+        }else{
+
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/beatbox.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+
+            pbuilder.getInstance().probuild(cmd9);
+
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+
+            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
+
+            helpMusic(c, c2);
         }
 
+
     }
+
+    /**
+     * Helper method to create videos with different background musics or no music.
+     * @param
+     * @return
+     * @throws Exception
+     */
+
+    public void helpMusic(String s1, String s2){
+        pbuilder.getInstance().probuild(s1);
+        pbuilder.getInstance().probuild(s2);
+
+    }
+
 
 
 
