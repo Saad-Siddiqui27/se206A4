@@ -1,38 +1,94 @@
-* {
-    dark-primary-color: #616161;
-    default-primary-color: #9E9E9E;
-    text-primary-color: #212121;
-    light-primary-color: #F5F5F5;
-    accent-color: #607D8B;
-    primary-text-color: #212121;
-    secondary-text-color: #f2f2f2;
-    divider-color: #BDBDBD;
-
-
-}
-
+/**
+ * Name: JavaFX Sky look n feel
+ * Publisher: Apress
+ * Author: Carl Dea
+ *
+ */
 .root {
-    -fx-background-color: default-primary-color;
+    -fx-font-size: 14pt;
+    -fx-font-family: "LucidaBrightDemiBold";
+    -fx-background: sky-blue;
+    -fx-base: rgb(250, 250, 250);
+    -fx-focus-color: derive( sky-blue , 90% );
+    sky-blue: rgb(17, 145, 213);
+    brighter-sky-blue: derive( sky-blue , 50% );
+}
+.menu:pressed {
+    -fx-background: brighter-sky-blue;
+    -fx-background-color: sky-blue;
+    -fx-text-fill: white;
+}
+.menu:hover > .label {
+    -fx-background: brighter-sky-blue;
+    -fx-background-color: sky-blue;
+    -fx-text-fill: white;
+}
+.menu-bar .menu:selected {
+    -fx-background: brighter-sky-blue;
+    -fx-background-color: sky-blue;
+    -fx-text-fill: white;
 }
 
-.button {
-    -fx-font: 16px "Arial";
-    -fx-text-fill: secondary-text-color;
-    -fx-padding: 5;
-    -fx-background-color: accent-color;
-    -fx-effect: dropshadow(one-pass-box, black, 14, 0.0 , 6, 0);
-    -fx-background-radius: 8;
+.menu-bar .menu-item:selected {
+    -fx-background: rgb(17, 145, 213);
+    -fx-background-color: derive( rgb(17, 145, 213), 50%);
+    -fx-text-fill: white;
 }
 
-.label {
-    -fx-font: 26px "Arial";
-    -fx-text-fill: secondary-text-color;
-    -fx-text-alignment: left;
+.menu-bar .menu-item:focused {
+    -fx-background: rgb(17, 145, 213);
+    -fx-background-color: derive( rgb(17, 145, 213), 50%);
+    -fx-text-fill: white;
 }
 
-.choice-box {
-    -fx-font: 16px "Arial";
-    -fx-text-fill: #616161;
-    -fx-text-alignment: left;
-    -fx-background-color: accent-color;
+.toggle-button{
+    -fx-text-fill: brighter-sky-blue;
+    -fx-border-color: rgba(255, 255, 255, .80);
+    -fx-border-radius: 8;
+    -fx-padding: 6 6 6 6;
+    -fx-font: bold italic 20pt "LucidaBrightDemiBold";
+}
+
+.radio-button:selected .radio .dot {
+    -fx-background-color:brighter-sky-blue;
+}
+.check-box:selected .mark {
+    -fx-background-color:brighter-sky-blue;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: brighter-sky-blue;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: brighter-sky-blue;
+}
+
+.slider .thumb {
+    -fx-background-color: brighter-sky-blue;
+}
+
+.progress-bar .bar {
+    -fx-box-border: brighter-sky-blue;
+    -fx-accent: brighter-sky-blue;
+}
+.progress-indicator{
+    -fx-progress-color: brighter-sky-blue;
+}
+.progress-indicator .percentage {
+    -fx-fill: rgb(255, 255, 255);
+}
+
+.button{
+    -fx-text-fill: brighter-sky-blue;
+    -fx-border-color: rgba(255, 255, 255, .80);
+    -fx-border-radius: 8;
+    -fx-padding: 6 6 6 6;
+    -fx-font: bold italic 11pt "LucidaBrightDemiBold";
+}
+
+.borders{
+    -fx-border-color: rgba(255, 255, 255, .80);
+    -fx-border-style: dotted;
+    -fx-border-width: 1;
+    -fx-border-insets: -2;
 }
