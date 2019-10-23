@@ -10,7 +10,7 @@
 <?import javafx.scene.media.MediaView?>
 
 
-<AnchorPane fx:id="revise" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
+<AnchorPane fx:id="revise" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
    <children>
       <HBox layoutY="41.0" prefHeight="420.0" prefWidth="740.0" spacing="100.0">
          <children>

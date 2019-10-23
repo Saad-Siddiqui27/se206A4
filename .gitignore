@@ -112,7 +112,6 @@ fabric.properties
 *.tar.gz
 *.rar
 *.wav
-*.txt
 *.mp4
 *.mkv
 *.au
