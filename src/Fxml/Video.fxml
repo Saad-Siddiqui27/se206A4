@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -13,8 +15,22 @@
 
 <AnchorPane fx:id="_Video" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Video.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
    <children>
-      <Button layoutX="621.0" layoutY="529.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory" />
-      <Button layoutX="30.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu" />
+      <Button layoutX="591.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="30.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/HOME.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <VBox layoutY="-2.0" prefHeight="58.0" prefWidth="804.0">
          <children>
             <Text fill="#e80303" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an audio file:">
@@ -42,9 +58,16 @@
                         <TextField fx:id="_creationName" opacity="0.83" prefHeight="26.0" prefWidth="230.0" promptText="Enter the name for the creation:" />
                         <VBox prefHeight="200.0" prefWidth="256.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="251.0" spacing="40.0">
+                              <HBox prefHeight="100.0" prefWidth="251.0" spacing="80.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#createVideo" text="Create" />
+                                    <Button mnemonicParsing="false" onAction="#createVideo" prefHeight="44.0" prefWidth="136.0" text="Create">
+                                       <graphic>
+                                          <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/createAudio.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></Button>
                                     <ChoiceBox fx:id="musics" prefWidth="150.0" />
                                  </children>
                               </HBox>
