@@ -9,49 +9,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="_Menu" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenu">
+<AnchorPane fx:id="_Menu" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenu">
    <children>
-      <VBox alignment="CENTER_RIGHT" layoutX="150.0" layoutY="100.0" prefHeight="400.0" prefWidth="500.0" spacing="40.0">
+      <VBox alignment="CENTER" layoutX="288.0" layoutY="109.0" prefHeight="617.0" prefWidth="698.0" spacing="150.0">
          <children>
-            <HBox prefHeight="80.0" prefWidth="383.0" spacing="100.0">
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="383.0" spacing="400.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchToCreate" prefHeight="44.0" prefWidth="169.0" text="Create Audio">
+                  <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToCreate" prefHeight="44.0" prefWidth="169.0" text="Create Audio">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/createAudio.png" />
-                           </image></ImageView>
-                     </graphic></Button>
-                  <Button mnemonicParsing="false" onAction="#switchToAudio" prefHeight="44.0" prefWidth="181.0" text="Make Creations">
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToAudio" prefHeight="44.0" prefWidth="181.0" text="Make Creations">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/createVideo.png" />
-                           </image></ImageView>
-                     </graphic></Button>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="400.0">
                <children>
-                <Button mnemonicParsing="false" onAction="#switchToPlay" prefHeight="44.0" prefWidth="184.0" text="Play Creations">
+                <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToPlay" prefHeight="44.0" prefWidth="184.0" text="Play Creations">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/play.png" />
-                           </image></ImageView>
-                     </graphic></Button>
-                  <Button mnemonicParsing="false" onAction="#switchToRevise" prefHeight="44.0" prefWidth="158.0" text="Quiz">
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToRevise" prefHeight="44.0" prefWidth="158.0" text="Quiz">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/quiz.png" />
-                           </image></ImageView>
-                     </graphic></Button>
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="255.0" layoutY="36.0" text="VARPEDIA" textFill="#c6c6c6">
+      <Label layoutX="509.0" layoutY="44.0" text="VARPEDIA" textFill="#c6c6c6">
          <font>
             <Font name="DejaVu Sans Mono Bold" size="53.0" />
          </font>

@@ -85,6 +85,9 @@
     -fx-padding: 6 6 6 6;
     -fx-font: bold italic 11pt "LucidaBrightDemiBold";
 }
+.button:hover{
+
+}
 
 .borders{
     -fx-border-color: rgba(255, 255, 255, .80);
