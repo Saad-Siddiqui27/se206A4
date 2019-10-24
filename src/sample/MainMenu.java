@@ -1,12 +1,15 @@
 package sample;
 
 
+import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -32,8 +35,9 @@ public class MainMenu {
 
 
     public void switchToCreate() {
+        SwitchScenes sw = new SwitchScenes(_Menu);
         try {
-            switchScenes("/Fxml/CreateAudio.fxml");
+            sw.switchScenes("/Fxml/CreateAudio.fxml");
         } catch (Exception e) {
             e.printStackTrace();
 
