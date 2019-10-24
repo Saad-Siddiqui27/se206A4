@@ -39,3 +39,4 @@ Unify by Snowflake (c) copyright 2019 Licensed under a Creative Commons Attribut
 <a target="_blank" href="https://icons8.com/icons/set/preview-pane">Preview Pane</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 <a target="_blank" href="https://icons8.com/icons/set/data-in-both-directions">Data Transfer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> 
 <a target="_blank" href="https://icons8.com/icons/set/save">Save</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/mute">Mute</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

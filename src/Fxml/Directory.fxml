@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -24,8 +26,22 @@
             </VBox>
             <VBox prefHeight="205.0" prefWidth="192.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goInAudioMerge" opacity="0.9" text="Merge Audio" />
-                  <Button mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" text="Create Video" />
+                  <Button mnemonicParsing="false" onAction="#goInAudioMerge" opacity="0.9" text="Merge Audio">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/merge.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" text="Create Video">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/createVideo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
                <padding>
                   <Insets left="20.0" top="50.0" />
@@ -36,6 +52,13 @@
             <Insets bottom="50.0" left="50.0" top="50.0" />
          </padding>
       </HBox>
-      <Button layoutX="63.0" layoutY="537.0" mnemonicParsing="false" onAction="#switchToMain" opacity="0.94" text="Main Menu" />
+      <Button layoutX="63.0" layoutY="537.0" mnemonicParsing="false" onAction="#switchToMain" opacity="0.94" text="Main Menu">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/HOME.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>
