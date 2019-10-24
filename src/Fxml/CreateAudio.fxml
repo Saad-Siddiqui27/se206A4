@@ -17,7 +17,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <TextArea fx:id="textArea2" layoutX="739.0" layoutY="117.0" opacity="0.85" prefHeight="450.0" prefWidth="400.0" promptText="Chosen part:" wrapText="true">
+      <TextArea fx:id="textArea2" layoutX="739.0" layoutY="117.0" opacity="0.85" prefHeight="199.0" prefWidth="400.0" promptText="Chosen part:" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></TextArea>
@@ -63,7 +63,7 @@
             </ImageView>
          </graphic></Button>
       <TextField fx:id="_audioName" layoutX="956.0" layoutY="724.0" prefHeight="44.0" prefWidth="244.0" promptText="Enter Audio name:" />
-      <Text fill="#21f552" fontSmoothingType="LCD" layoutX="435.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="length no larger than 40 ">
+      <Text fill="#21f552" fontSmoothingType="LCD" layoutX="454.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="length no larger than 40 ">
          <font>
             <Font size="16.0" />
          </font></Text>
