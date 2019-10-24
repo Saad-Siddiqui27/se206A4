@@ -24,3 +24,20 @@ The back ground music is used under the following copyrights.
 Unify by Snowflake (c) copyright 2019 Licensed under a Creative Commons Attribution (3.0) license. http://dig.ccmixter.org/files/snowflake/59709 Ft: Apoxode
 
 13-year-old Super-Herbie Beatboxing, July 22, 2019 by aliteralmind (c) copyright 2019 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/aliteralmind/60072 Ft: Super-Herbie
+
+
+
+##### Icons:
+
+<a target="_blank" href="https://icons8.com/icons/set/question-mark">Question Mark</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+<a target="_blank" href="https://icons8.com/icons/set/home">Home</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/circled-play">Circled Play</a>, <a target="_blank" href="https://icons8.com/icons/set/delete-forever">Delete Bin</a> and other icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/high-volume">Audio</a>, <a target="_blank" href="https://icons8.com/icons/set/video">Video</a> and other icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/text-input-form">Text Input Form</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/search">Search</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/preview-pane">Preview Pane</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/data-in-both-directions">Data Transfer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> 
+<a target="_blank" href="https://icons8.com/icons/set/save">Save</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/mute">Mute</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icons/set/next">Next</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

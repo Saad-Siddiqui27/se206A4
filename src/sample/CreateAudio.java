@@ -241,8 +241,10 @@ public void Save() {
             @Override
             public void run() {
 
+                SwitchScenes sw = new SwitchScenes(_create);
+
                 try {
-                    switchScenes("/Fxml/MainMenu.fxml");
+                    sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
