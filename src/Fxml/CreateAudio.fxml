@@ -73,6 +73,6 @@
          </font>
       </Text>
       <ChoiceBox fx:id="_menubutton" layoutX="486.0" layoutY="230.0" prefWidth="150.0" />
-      <ProgressIndicator fx:id="pi" layoutX="347.0" layoutY="35.0" />
+      <ProgressIndicator fx:id="pi" layoutX="429.0" layoutY="55.0" />
    </children>
 </AnchorPane>
