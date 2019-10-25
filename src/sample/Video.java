@@ -330,6 +330,12 @@ public class Video {
 
 
                 CombineVideo(time);
+                Platform.runLater(new Multi() {
+                    @Override
+                    public void run() {
+                        initialize();
+                    }
+                });
 
 
 

@@ -11,10 +11,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/MainMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/splash.fxml"));
         primaryStage.setTitle("Wikit Application");
-        primaryStage.setScene(new Scene(root, 1200, 800
-        ));
+        primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.show();
         primaryStage.setResizable(false);
     }
