@@ -112,6 +112,7 @@ public class Video {
 
             Thread object1 = new Thread(new Multi1());
             object1.start();
+//            initialize();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("your creation has been created");
