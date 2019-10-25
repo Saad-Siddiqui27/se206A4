@@ -59,10 +59,18 @@
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="472.0" layoutY="44.0" text="VARPEDIA" textFill="#c6c6c6">
-         <font>
-            <Font name="DejaVu Sans Mono Bold" size="53.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+         <children>
+            <Label text="VARPEDIA" textFill="#270699">
+               <font>
+                  <Font name="DejaVu Sans Mono Bold" size="74.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
+      <VBox layoutX="1000.0" layoutY="224.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
+      <VBox layoutX="100.0" layoutY="234.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
+      <VBox layoutX="1100.0" layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
    </children>
 </AnchorPane>
