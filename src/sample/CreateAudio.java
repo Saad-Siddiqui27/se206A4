@@ -350,9 +350,9 @@ public void Save() {
             }
             String s = pbuilder.getInstance().getTerm();
 
-            pbuilder.getInstance().probuild2("cd " + s + ".au;pwd");
+            pbuilder.getInstance().probuild2("cd " + term + ".au;pwd");
 
-            pbuilder.getInstance().probuild("cd " + s + ".au ; sox " + files.toString() + "" + _merged.getText() + ".wav");
+            pbuilder.getInstance().probuild("cd " + term + ".au ; sox " + files.toString() + "" + _merged.getText() + ".wav");
 
 //            pbuilder.getInstance().probuild("rm " + files.toString());
 
@@ -374,6 +374,45 @@ public void Save() {
         }
 
 
+    }
+
+
+    public void delete(){
+
+        if(!_list.getSelectionModel().getSelectedItem().toString().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Are you sure that you want to delete the creation?");
+            alert.setTitle("Delete the creation?");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+
+                    try{
+
+                        String topics;
+                        topics = _list.getSelectionModel().getSelectedItem().toString();
+                        pbuilder.getInstance().probuild ("cd "+term+".au; rm "+ topics+".wav");
+
+                        initialize();
+
+                    } catch(Exception e)
+
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+        initialize();
+
+    }
+
+
+    public void Play(){
+
+
+        String s = "cd "+term+".au ;play "+ _list.getSelectionModel().getSelectedItem().toString()+".wav";
+        pbuilder.getInstance().probuild(s);
     }
 
 

@@ -1,1 +1,2 @@
-(voice_kal_diphone) 
+(voice_kal_diphone) ;; select Jono 
+(SayText "")
