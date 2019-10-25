@@ -13,39 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="_Video" prefHeight="600.0" prefWidth="1200.0" stylesheets="@../CSS/Video.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
+<AnchorPane fx:id="_Video" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Video.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Video">
    <children>
-      <Button layoutX="997.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/back.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button layoutX="42.0" layoutY="536.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/HOME.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <VBox layoutY="-2.0" prefHeight="58.0" prefWidth="804.0">
+      <VBox layoutY="200.0" prefHeight="700.0" prefWidth="1200.0" spacing="100.0">
          <children>
-            <Text fill="#e80303" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an audio file:">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Text>
-         </children>
-         <padding>
-            <Insets left="300.0" right="50.0" top="20.0" />
-         </padding>
-      </VBox>
-      <VBox prefHeight="500.0" prefWidth="1200.0">
-         <children>
-            <HBox prefHeight="495.0" prefWidth="1012.0" spacing="100.0">
+            <HBox prefHeight="500.0" prefWidth="1012.0" spacing="100.0">
                <children>
                   <VBox prefHeight="400.0" prefWidth="300.0">
                      <children>
@@ -84,7 +56,38 @@
                   <Insets left="40.0" right="40.0" top="80.0" />
                </padding>
             </HBox>
+            <AnchorPane prefHeight="100.0" prefWidth="1200.0">
+               <children>
+                  <Button layoutX="25.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToMain" text="Main Menu">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/HOME.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="995.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchBack" text="Back to directory">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+         <children>
+            <Text fx:id="label1" fill="#3305e5" strokeType="OUTSIDE" strokeWidth="0.0" text="VARPEDIA">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
