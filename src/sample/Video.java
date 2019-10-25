@@ -26,6 +26,8 @@ public class Video {
     private CheckBox music;
     @FXML
     private ChoiceBox musics;
+    @FXML
+    private ListView _creationList;
 
     private String num ;
 
@@ -48,10 +50,27 @@ public class Video {
         pro.probuild2("cd \""+s+"\".au; "+"ls *.wav 2> /dev/null");
         List<String> str = pro.getStd();
 
+
         for (int i = 0; i < str.size(); i++) {
             _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
+        _creationList.getItems().clear();
+        pbuilder pro2 = pbuilder.getInstance();
+        pro.probuild2("cd Creations/; ls  2> /dev/null");
+        List<String> str2 = pro2.getStd();
+
+
+        for (int i = 0; i < str2.size(); i++) {
+            _creationList.getItems().add(str2.get(i).substring(0, str.get(i).length()));
+        }
+        _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+
+
+
         musics.getItems().addAll("Child beat Box","something cool","No music");
         musics.setValue("No music");
 
