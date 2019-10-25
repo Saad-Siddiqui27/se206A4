@@ -26,14 +26,6 @@
             </VBox>
             <VBox prefHeight="205.0" prefWidth="192.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goInAudioMerge" opacity="0.9" text="Merge Audio">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/merge.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
                   <Button mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" text="Create Video">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
