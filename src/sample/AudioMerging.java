@@ -24,11 +24,6 @@ public class AudioMerging {
 
 //
         String s = pbuilder.getInstance().getTerm();
-//        System.out.println(s);
-//        s = s.substring(1,s.length()-1);
-//        pbuilder.getInstance().probuild2("cd "+s+".au");
-
-
         _list.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
         pro.probuild2("cd " + s + ".au; " + "ls *.wav 2> /dev/null");
