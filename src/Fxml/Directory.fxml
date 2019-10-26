@@ -11,13 +11,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="_Audio" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Directory.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Directory">
+<AnchorPane fx:id="_Audio" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Directory.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Directory">
    <children>
-      <Text fill="#f20404" layoutX="261.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose an Audio">
-         <font>
-            <Font size="33.0" />
-         </font></Text>
-      <HBox layoutY="45.0" prefHeight="490.0" prefWidth="800.0" spacing="200.0">
+      <HBox layoutY="173.0" prefHeight="490.0" prefWidth="1200.0" spacing="500.0">
          <children>
             <VBox prefHeight="205.0" prefWidth="254.0">
                <children>
@@ -26,14 +22,6 @@
             </VBox>
             <VBox prefHeight="205.0" prefWidth="192.0" spacing="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goInAudioMerge" opacity="0.9" text="Merge Audio">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/merge.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
                   <Button mnemonicParsing="false" onAction="#goInVideoCreate" opacity="0.86" text="Create Video">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -52,7 +40,7 @@
             <Insets bottom="50.0" left="50.0" top="50.0" />
          </padding>
       </HBox>
-      <Button layoutX="63.0" layoutY="537.0" mnemonicParsing="false" onAction="#switchToMain" opacity="0.94" text="Main Menu">
+      <Button layoutX="29.0" layoutY="717.0" mnemonicParsing="false" onAction="#switchToMain" opacity="0.94" text="Main Menu">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -60,5 +48,17 @@
                </image>
             </ImageView>
          </graphic></Button>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+         <children>
+            <Text fx:id="label1" fill="#5305f0" strokeType="OUTSIDE" strokeWidth="0.0" text="VARPEDIA">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <VBox layoutX="381.0" layoutY="480.0" prefHeight="330.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
+      <VBox layoutX="593.0" layoutY="603.0" prefHeight="207.0" prefWidth="100.0" style="-fx-background-color: green;" />
+      <VBox layoutX="777.0" layoutY="694.0" prefHeight="116.0" prefWidth="100.0" style="-fx-background-color: red;" />
    </children>
 </AnchorPane>

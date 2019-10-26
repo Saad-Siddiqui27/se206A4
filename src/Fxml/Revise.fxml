@@ -11,47 +11,66 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="revise" prefHeight="600.0" prefWidth="800.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
+<AnchorPane fx:id="revise" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
    <children>
-      <HBox layoutY="41.0" prefHeight="420.0" prefWidth="740.0" spacing="100.0">
+      <VBox layoutY="150.0" prefHeight="650.0" prefWidth="1200.0">
          <children>
-            <MediaView fx:id="media" fitHeight="400.0" fitWidth="500.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="100.0">
+            <HBox prefHeight="420.0" prefWidth="740.0" spacing="100.0">
                <children>
-                  <Label fx:id="points" prefHeight="16.0" prefWidth="95.0" />
+                  <MediaView fx:id="media" fitHeight="400.0" fitWidth="600.0" />
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="300.0" spacing="100.0">
+                     <children>
+                        <Label fx:id="points" prefHeight="76.0" prefWidth="297.0" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+               <padding>
+                  <Insets left="40.0" top="20.0" />
+               </padding>
+            </HBox>
+            <AnchorPane prefHeight="168.0" prefWidth="1200.0">
+               <children>
+                  <Button fx:id="next" layoutX="1031.0" layoutY="148.0" mnemonicParsing="false" onAction="#go" text="Take Quiz">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/next.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="36.0" layoutY="148.0" mnemonicParsing="false" onAction="#switchToMain" text="MainMenu">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/HOME.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="confirmButton" layoutX="512.0" layoutY="134.0" mnemonicParsing="false" onAction="#confirm" text="Confirm">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/confirm.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <TextField fx:id="ans" alignment="CENTER" layoutX="447.0" layoutY="81.0" />
+                  <Label fx:id="wrong" layoutX="325.0" layoutY="26.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label fx:id="noCreations" layoutX="425.0" layoutY="-25.0" />
+               </children>
+            </AnchorPane>
          </children>
          <padding>
-            <Insets left="40.0" />
+            <Insets top="30.0" />
          </padding>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: BLACK;">
+         <children>
+            <Label fx:id="label1" text="VARPEDIA" />
+         </children>
       </HBox>
-      <Button fx:id="next" layoutX="648.0" layoutY="548.0" mnemonicParsing="false" onAction="#go" text="Take Quiz">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/next.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button layoutX="40.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToMain" text="MainMenu">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/HOME.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="confirmButton" layoutX="363.0" layoutY="508.0" mnemonicParsing="false" onAction="#confirm" text="Confirm">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/confirm.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <TextField fx:id="ans" alignment="CENTER" layoutX="315.0" layoutY="461.0" />
-      <Label fx:id="wrong" layoutX="315.0" layoutY="548.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label fx:id="noCreations" layoutX="352.0" layoutY="14.0" text="Label" />
    </children>
 </AnchorPane>

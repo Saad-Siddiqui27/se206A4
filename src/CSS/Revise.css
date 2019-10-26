@@ -13,6 +13,31 @@
     sky-blue: rgb(17, 145, 213);
     brighter-sky-blue: derive( sky-blue , 50% );
 }
+
+#label1{
+    -fx-text-fill: darkblue;
+    -fx-font-size: 72pt;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+
+}
+#points{
+    -fx-text-fill: yellow;
+    -fx-font-size: 18pt;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+
+}
+
+#noCreations{
+    -fx-text-fill: darkblue;
+    -fx-font-size: 32pt;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+
+}
+
+
 .menu:pressed {
     -fx-background: brighter-sky-blue;
     -fx-background-color: sky-blue;

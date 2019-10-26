@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.List;
 import java.util.StringTokenizer;
 
 
@@ -41,6 +42,10 @@ public class CreateAudio {
     @FXML
     private TextField _textfield2;
     @FXML private ProgressIndicator pi;
+    @FXML
+    private ListView _list;
+    @FXML
+    private TextField _merged;
 
 
 
@@ -63,6 +68,18 @@ public class CreateAudio {
         _menubutton.setValue("Default Voice");
         pi.setVisible(false);
 
+        String s = pbuilder.getInstance().getTerm();
+        _list.getItems().clear();
+        pbuilder pro = pbuilder.getInstance();
+        pro.probuild2("cd " + term + ".au; " + "ls *.wav ; cd .. 2> /dev/null");
+        List<String> str = pro.getStd();
+
+        for (int i = 0; i < str.size(); i++) {
+            _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
+        }
+        _list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+
     }
 
 
@@ -84,12 +101,9 @@ public class CreateAudio {
             pi.setVisible(true);
             Thread object1 = new Thread(new Multi1());
             object1.start();
-
-
-
+            initialize();
 
         }
-
 
     }
 
@@ -166,6 +180,8 @@ public void Save() {
                 helpSave(str2, "(voice_kal_diphone) ");
 
             }
+            initialize();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -181,6 +197,7 @@ public void Save() {
 
             }
         });
+
 
     }
 
@@ -200,8 +217,7 @@ public void Save() {
             pbuilder.getInstance().probuild(cmd4);
         }
         String cmd3 = "text2wave -o "+_textfield.getText()+".au/"+_audioName.getText()+".wav "+f2+" -eval "+f;
-        pbuild(cmd3);
-        System.out.println(_audioName.getText() + " saved");
+        pbuilder.getInstance().probuild(cmd3);
 
 
     }
@@ -300,10 +316,104 @@ public void Save() {
                 stderr.close();
                 stdout.close();
 
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
+
+
+    public void merge() {
+
+
+        StringBuilder files = new StringBuilder();
+        List<String> Files = _list.getSelectionModel().getSelectedItems();
+
+        if (Files.size() < 2) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select two or more files to merge");
+            alert.setTitle("Merging Files");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+
+                }
+
+            });
+        } else {
+            for (int i = 0; i < Files.size(); i++) {
+
+
+                files.append(Files.get(i) + ".wav ");
+
+            }
+            String s = pbuilder.getInstance().getTerm();
+
+            pbuilder.getInstance().probuild2("cd " + term + ".au;pwd");
+
+            pbuilder.getInstance().probuild("cd " + term + ".au ; sox " + files.toString() + "" + _merged.getText() + ".wav");
+
+//            pbuilder.getInstance().probuild("rm " + files.toString());
+
+            initialize();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Audios has been Merged successfully");
+            alert.setTitle("Success");
+
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+
+
+                }
+            });
+
+
+        }
+
+
+    }
+
+
+    public void delete(){
+
+        if(!_list.getSelectionModel().getSelectedItem().toString().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Are you sure that you want to delete the creation?");
+            alert.setTitle("Delete the creation?");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+
+                    try{
+
+                        String topics;
+                        topics = _list.getSelectionModel().getSelectedItem().toString();
+                        pbuilder.getInstance().probuild ("cd "+term+".au; rm "+ topics+".wav");
+
+                        initialize();
+
+                    } catch(Exception e)
+
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+        initialize();
+
+    }
+
+
+    public void Play(){
+
+
+        String s = "cd "+term+".au ;play "+ _list.getSelectionModel().getSelectedItem().toString()+".wav";
+        pbuilder.getInstance().probuild(s);
+    }
+
 
 }
