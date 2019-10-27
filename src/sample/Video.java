@@ -5,8 +5,11 @@ package sample;
         import com.flickr4java.flickr.REST;
         import com.flickr4java.flickr.photos.*;
         import javafx.application.Platform;
+        import javafx.event.EventHandler;
         import javafx.fxml.FXML;
         import javafx.scene.control.*;
+        import javafx.scene.input.KeyCode;
+        import javafx.scene.input.KeyEvent;
         import javafx.scene.layout.Pane;
 
         import javax.imageio.ImageIO;
@@ -71,6 +74,15 @@ public class Video {
         musics.getItems().clear();
         musics.getItems().addAll("Jullibie","something cool","No music","wolf instrumental");
         musics.setValue("No music");
+
+        _creationName.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    createVideo();
+                }
+            }
+        });
 
     }
 
