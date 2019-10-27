@@ -79,54 +79,68 @@ public class Video {
 
     public void createVideo() {
 
-
-        num = _numpics.getText();
-        List<String> n = new ArrayList<>();
-        int m = 1;
-        while(m<=10) {
-            n.add(Integer.toString(m))
-            ;m = m + 1;}
-        if (!n.contains(num)) {
-
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please enter a valid number between 1 and 10");
-            alert.setTitle("Invalid Number");
+        if (_list.getSelectionModel().getSelectedItem()==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select an audio to create a video of");
+            alert.setTitle("No audio selected");
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
 
                 }
+
             });
-        } else if (_creationName.getText().isEmpty()) {
+        }else {
+            num = _numpics.getText();
+            List<String> n = new ArrayList<>();
+            int m = 1;
+            while (m <= 10) {
+                n.add(Integer.toString(m))
+                ;
+                m = m + 1;
+            }
+            if (!n.contains(num)) {
 
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please enter a creation name");
-            alert.setTitle("Creation Name not entered");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("Please enter a valid number between 1 and 10");
+                alert.setTitle("Invalid Number");
 
-            alert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
 
-                }
-            });
-        } else {
+                    }
+                });
+            } else if (_creationName.getText().isEmpty()) {
 
-            Thread object1 = new Thread(new Multi1());
-            object1.start();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("Please enter a creation name");
+                alert.setTitle("Creation Name not entered");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+
+                    }
+                });
+            } else {
+
+                Thread object1 = new Thread(new Multi1());
+                object1.start();
 //            initialize();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("your creation has been created");
-            alert.setTitle("Successful");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("your creation has been created");
+                alert.setTitle("Successful");
 
 
-            alert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
 
 
-                }
-            });
+                    }
+                });
 
 
+            }
         }
 
 

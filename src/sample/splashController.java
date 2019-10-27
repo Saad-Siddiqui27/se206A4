@@ -71,7 +71,7 @@ public class splashController implements Initializable {
         @Override
         public void run() {
             try {
-                Thread.sleep(5);
+                Thread.sleep(5000);
 
                 Platform.runLater(new Runnable() {
                     @Override
