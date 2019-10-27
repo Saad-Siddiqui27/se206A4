@@ -181,17 +181,21 @@ public void Save() {
 
 
     if (i > 40) {
-
-        //To do Alerts;
-
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("The text is over the limit");
         alert.setTitle("Over the limit");
-
-
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
 
+            }
+        });
+
+    }else if (_audioName.getText().isEmpty()) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Please enter a valid name for your audio.");
+        alert.setTitle("Invalid audio name");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
 
             }
         });

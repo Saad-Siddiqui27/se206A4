@@ -150,7 +150,6 @@ public class Revise {
                     player.stop();
                 }
                 SwitchScenes sw = new SwitchScenes(revise);
-
                 try {
                     sw.switchScenes("/Fxml/MainMenu.fxml");
                 } catch (Exception e) {
