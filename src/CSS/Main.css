@@ -7,7 +7,7 @@
 .root {
     -fx-font-size: 14pt;
     -fx-font-family: "LucidaBrightDemiBold";
-    -fx-background: sky-blue;
+    -fx-background: #5e92f3;
     -fx-base: rgb(250, 250, 250);
     -fx-focus-color: derive( sky-blue , 90% );
     sky-blue: rgb(17, 145, 213);

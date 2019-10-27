@@ -86,7 +86,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: #1565c0;">
          <children>
             <Label fx:id="label1" text="VARPEDIA" />
          </children>

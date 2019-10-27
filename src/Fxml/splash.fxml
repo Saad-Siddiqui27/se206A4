@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #0a0c8f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.splashController">
+<AnchorPane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #311b92;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.splashController">
    <children>
       <StackPane layoutX="358.0" layoutY="197.0" prefHeight="407.0" prefWidth="484.0">
          <children>
@@ -16,10 +16,16 @@
             <Circle fx:id="c2" fill="#0b4e5700" radius="117.0" stroke="#ff06ff" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
          </children>
       </StackPane>
-      <Label layoutX="212.0" layoutY="62.0" text="WELCOME TO VARPEDIA" textFill="#ff1616">
+      <Label layoutX="147.0" layoutY="14.0" text="WELCOME TO VARPEDIA" textFill="#00b0ff">
          <font>
-            <Font name="Liberation Mono Italic" size="68.0" />
+            <Font name="Liberation Mono Bold" size="84.0" />
          </font>
       </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="484.0" layoutX="52.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="380.0" layoutX="147.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff8f" height="279.0" layoutX="268.0" layoutY="521.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="484.0" layoutX="1087.0" layoutY="316.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="380.0" layoutX="985.0" layoutY="420.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff8f" height="279.0" layoutX="875.0" layoutY="521.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
    </children>
 </AnchorPane>

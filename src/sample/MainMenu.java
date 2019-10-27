@@ -19,21 +19,9 @@ public class MainMenu {
     @FXML
     Pane _Menu;
 
-
-
-
-
-    public void switchScenes(String fxml) throws IOException {
-
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        Stage stage = (Stage) _Menu.getScene().getWindow();
-
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.sizeToScene();
-    }
-
-
+    /**
+     * method which switches scene to the Creating Audio scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
     public void switchToCreate() {
         SwitchScenes sw = new SwitchScenes(_Menu);
         try {
@@ -46,7 +34,10 @@ public class MainMenu {
     }
 
 
-    public void switchToAudio() {
+    /**
+     * method which switches scene to the Creating Video scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
+    public void switchToVideo() {
 
 
         SwitchScenes sw = new SwitchScenes(_Menu);
@@ -59,6 +50,9 @@ public class MainMenu {
         }
     }
 
+    /**
+     * method which switches scene to the playing creations scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
         public void switchToPlay() {
 
             SwitchScenes sw = new SwitchScenes(_Menu);
@@ -70,6 +64,9 @@ public class MainMenu {
             }
         }
 
+    /**
+     * method which switches scene to the quiz scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
     public void switchToRevise() {
 
         SwitchScenes sw = new SwitchScenes(_Menu);

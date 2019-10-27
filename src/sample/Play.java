@@ -15,10 +15,9 @@ import java.util.Scanner;
 
 public class Play {
 
-    public Play(){
-
-    }
-
+//    public Play(){
+//
+//    }
 
     @FXML
     private Pane _Play;

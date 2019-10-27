@@ -6,7 +6,7 @@
  */
 .root {
     -fx-font-size: 14pt;
-    -fx-font-family: "LucidaBrightDemiBold";
+    -fx-font-family: Arbutus, cursive;
     -fx-background: sky-blue;
     -fx-base: rgb(250, 250, 250);
     -fx-focus-color: derive( sky-blue , 90% );
@@ -14,13 +14,13 @@
     brighter-sky-blue: derive( sky-blue , 50% );
 }
 
-#label1{
-    -fx-text-fill: darkblue;
-    -fx-font-size: 72pt;
-    -fx-font-family: "DejaVu Sans Mono";
-    -fx-font-style: BOLD;
+/*#label1{*/
+/*    -fx-text-fill: #fff176;*/
+/*    -fx-font-size: 72pt;*/
+/*    -fx-font-family: Arbutus, cursive;*/
+/*    -fx-font-style: BOLD;*/
 
-}
+/*}*/
 
 .menu:pressed {
     -fx-background: brighter-sky-blue;
