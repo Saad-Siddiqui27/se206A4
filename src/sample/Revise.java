@@ -113,21 +113,31 @@ public class Revise {
 
     int p = 0;
     public void confirm() throws FileNotFoundException {
+        if(ans.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter an answer");
+            alert.setTitle("Answer not provided");
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                }
+            });
+        }else {
 
-        File file2 = new File(file.toString()+"/term.txt");
-        Scanner sc = new Scanner(file2);
-        if(ans.getText().equals(sc.next())){
+            File file2 = new File(file.toString() + "/term.txt");
+            Scanner sc = new Scanner(file2);
+            if (ans.getText().equals(sc.next())) {
 
-            p=p+10;
-           points.setText("Points: "+ p);
-           confirmButton.setDisable(true);
-           next.setDisable(false);
-           wrong.setText("Correct Answer");
-        }else{
-            System.out.println("no");
-            confirmButton.setDisable(true);
-            next.setDisable(false);
-            wrong.setText("Wrong Answer");
+                p = p + 10;
+                points.setText("Points: " + p);
+                confirmButton.setDisable(true);
+                next.setDisable(false);
+                wrong.setText("Correct Answer");
+            } else {
+                System.out.println("no");
+                confirmButton.setDisable(true);
+                next.setDisable(false);
+                wrong.setText("Wrong Answer");
+            }
         }
     }
 

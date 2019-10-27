@@ -370,6 +370,16 @@ public void Save() {
                 }
 
             });
+        }else if (_merged.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please enter a file name for the audio");
+            alert.setTitle("Merging Files");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                }
+            });
+
         } else {
             for (int i = 0; i < Files.size(); i++) {
 
