@@ -68,10 +68,8 @@ public class Video {
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-
-
-
-        musics.getItems().addAll("Child beat Box","something cool","No music");
+        musics.getItems().clear();
+        musics.getItems().addAll("Jullibie","something cool","No music","wolf instrumental");
         musics.setValue("No music");
 
     }
@@ -188,9 +186,20 @@ public class Video {
             String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
 
             helpMusic(c, c2);
+        }else if(musics.getValue().equals("wolf instrumental")){
+
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/wolf.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+
+            pbuilder.getInstance().probuild(cmd9);
+
+            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
+
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+
+            helpMusic(c, c2);
         }else{
 
-            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/beatbox.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/Jullibe.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
 
             pbuilder.getInstance().probuild(cmd9);
 
