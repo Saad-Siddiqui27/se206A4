@@ -39,32 +39,29 @@ public class Video {
     String query = pbuilder.getInstance().getTerm();
 
 
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * this method initialises and populates the list of audio files that are to be used in order to generate a video.
+     * it also initializes and refreshest the list of creations when a creation is made.
+     */
     @FXML
     public void initialize() {
 
-
-
         String s =pbuilder.getInstance().getTerm();
-
-//        pbuilder.getInstance().probuild2("cd "+s+".au");
-
         _list.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
         pro.probuild2("cd \""+s+"\".au; "+"ls *.wav 2> /dev/null");
         List<String> str = pro.getStd();
-
 
         for (int i = 0; i < str.size(); i++) {
             _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-
         _creationList.getItems().clear();
         pbuilder pro2 = pbuilder.getInstance();
         pro.probuild2("cd Creations/; ls  2> /dev/null");
         List<String> str2 = pro2.getStd();
-
 
         for (int i = 0; i < str2.size(); i++) {
             _creationList.getItems().add(str2.get(i).substring(0, str.get(i).length()));
@@ -86,7 +83,10 @@ public class Video {
 
     }
 
-
+    /**
+     * this method is linked to the the create button and creates the video by doing a number of error checks as well.
+     * it sends out an alert message if the appropiate method is not followed.
+     */
     public void createVideo() {
 
         if (_list.getSelectionModel().getSelectedItem()==null) {
@@ -98,7 +98,6 @@ public class Video {
                 if (response == ButtonType.OK) {
 
                 }
-
             });
         }else {
             num = _numpics.getText();
@@ -148,16 +147,16 @@ public class Video {
 
                     }
                 });
-
-
             }
         }
-
-
     }
 
 
-
+    /**
+     *
+     * @param time
+     * @throws IOException
+     */
     public void CombineVideo(double time) throws IOException {
 
         int number = Integer.parseInt(_numpics.getText());
@@ -239,9 +238,12 @@ public class Video {
     }
 
 
-
-
-
+    /**
+     * gets the specified flickr keys of the user by reading the file.
+     * @param key
+     * @return
+     * @throws Exception
+     */
     private static String getAPIKey(String key) throws Exception {
         // TODO fix the following based on where you will have your config file stored
 
@@ -260,8 +262,6 @@ public class Video {
         br.close();
         throw new RuntimeException("Couldn't find " + key + " in config file " + file.getName());
 
-//finish
-
     }
 
 
@@ -271,19 +271,19 @@ public class Video {
             @Override
             public void run() {
                 SwitchScenes sw = new SwitchScenes(_Video);
-
                 try {
                     sw.switchScenes("/Fxml/Directory.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
 
 
-
+    /**
+     *  method which switches scene to the main menu scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void switchToMain() {
         Platform.runLater(new Multi() {
             @Override
@@ -295,7 +295,6 @@ public class Video {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
@@ -308,6 +307,10 @@ public class Video {
         }
     }
 
+    /**
+     * helper class to implement GUI concurrency.
+     * in the run method the pictures are retrieved form flickr and
+     */
     public class Multi1 implements Runnable {
 
         @Override
@@ -357,7 +360,6 @@ public class Video {
                 String cmd5 = "mv *.jpg " + query + ".au";
                 pbuilder.getInstance().probuild(cmd5);
 
-//                File f = new File(_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 pbuilder.getInstance().probuild2("cd "+ query+".au;" +" soxi -D "+_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 List<String> time1 = pbuilder.getInstance().getStd();
                 Double time = Double.parseDouble( time1.get(0));
@@ -372,18 +374,11 @@ public class Video {
                     }
                 });
 
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-
-
-
         }
-
-
 
     }
 }

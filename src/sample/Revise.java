@@ -33,11 +33,13 @@ public class Revise {
     @FXML private Label wrong;
     @FXML private Label noCreations;
 
-
-    MediaPlayer player ;
-
+    private MediaPlayer player ;
 
 
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * this method disables the take quiz and confirm answer buttons if no creations exist. this is because there would be no creation to take a quiz of
+     */
 
     @FXML
     public void initialize(){
@@ -53,21 +55,23 @@ public class Revise {
 
         }
 
-        ans.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode() == KeyCode.ENTER) {
-                    try {
-                        confirm();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+        //event handler to take action if enter is pressed.
+        ans.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                try {
+                    confirm();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                 }
             }
         });
 
     }
 
+    /**
+     *this method is linked to the take quiz button. it starts up the quiz by randomly selecting any of the creations to play.
+     * it does not allow the user to go to the next question untill the answer for current question is not provided by disabling the next button.
+     */
     public void go(){
 
         if(player!=null){
@@ -86,7 +90,9 @@ public class Revise {
 
     }
 
-
+    /**
+     * this is a helper method which sets up the media for the randomly selected quiz to be played.
+     */
     private File file;
     public void setMedia(){
         File fileUr = new File("Creations/");
@@ -103,6 +109,9 @@ public class Revise {
         media.setMediaPlayer(player);
     }
 
+    /**
+     * helper class to implement GUI concurrency
+     */
     public class Multi1 implements Runnable{
 
         @Override
@@ -111,6 +120,11 @@ public class Revise {
         }
     }
 
+    /**
+     * this method is linked to the confirm button and checks if the answer provided by
+     * the user is correct or not. it keeps track of the number of correct answers given by maintaining a
+     * points system.
+     */
     int p = 0;
     public void confirm() throws FileNotFoundException {
         if(ans.getText().isEmpty()){
@@ -141,7 +155,9 @@ public class Revise {
         }
     }
 
-
+    /**
+     *  method which switches scene to the main menu scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
     public void switchToMain() {
         Platform.runLater(new Multi() {
             @Override

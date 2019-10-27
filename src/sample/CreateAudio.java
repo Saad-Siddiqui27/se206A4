@@ -56,15 +56,21 @@ public class CreateAudio {
 
 
 
-    String term;
+    private String term;
 
 
-    //Henry part;
+
     String num;
     int number;
-    //done
 
 
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * this method initialises and populates the list of audio files that are to be used in order to generate a video.
+     * it also populates choice box for selecting voices.
+     * it also has functionality to implement the Enter shortcut key on text fields.
+     *
+     */
     @FXML
     public void initialize(){
         _menubutton.getItems().addAll("Auckland Voice","Default Voice");
@@ -91,6 +97,9 @@ public class CreateAudio {
             }
         });
 
+        /**
+         * Enter shortcut key implentation
+         */
         _audioName.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -100,6 +109,9 @@ public class CreateAudio {
             }
         });
 
+        /**
+         * Enter shortcut key implentation
+         */
         _merged.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -111,8 +123,11 @@ public class CreateAudio {
 
     }
 
-
-
+    /**
+     * this method is linked to the search button on the scene.
+     * this method has concurrency and searches the wikipedia using wikit by utilising the services of
+     * another worker thread.
+     */
     public void search() {
         term = _textfield.getText();
 
@@ -137,7 +152,11 @@ public class CreateAudio {
     }
 
 
-public String select(){
+    /**
+     * a helper thread which get the selected text from text area 1. this text is the one retrived fom wikipedia.
+     * @return
+     */
+    public String select(){
         String str = textArea1.getSelectedText();
         textArea2.appendText(str);
 
@@ -145,11 +164,12 @@ public String select(){
 }
 
 
+    private File f = new File("voice1.scm");
 
-
-    File f = new File("voice1.scm");
-
-public void play(){
+    /**
+     * this method plays the audio files the selected audio from text area 1 in different voices.
+     */
+    public void play(){
         String str = textArea1.getSelectedText();
     try {
         if(_menubutton.getValue()=="Auckland Voice") {
@@ -174,12 +194,19 @@ public void play(){
 
 }
 
-public void Save() {
+    /**
+     * this method saves the audio generated and selected over to the text area 2.
+     *
+     */
+    public void Save() {
 
     StringTokenizer tokens = new StringTokenizer(textArea2.getText());
     int i = tokens.countTokens();
 
 
+        /**
+         * waring allerts if the number of words in the selected test is over 40.
+         */
     if (i > 40) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("The text is over the limit");
@@ -206,7 +233,6 @@ public void Save() {
 
             String str2 = textArea2.getText();
 
-
             if (_menubutton.getValue()=="Auckland Voice") {
                 helpSave(str2, "(voice_akl_nz_jdt_diphone) ");
             } else if (_menubutton.getValue()=="Default Voice") {
@@ -231,11 +257,16 @@ public void Save() {
             }
         });
 
-
     }
 
 }
 
+    /**
+     * a helper method which helps to save the audio files.
+     * @param str2 the string to save
+     * @param s the voice to save it in.
+     * @throws IOException
+     */
     public void helpSave(String str2, String s) throws IOException {
         File f2 = new File("text");
         FileWriter fw2 = new FileWriter(f2);
@@ -255,36 +286,26 @@ public void Save() {
 
     }
 
-
     public void pbuild(String cmd){
         try {
             ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
 
             Process process = pb.start();
 
-
-
         } catch(Exception e){
             e.printStackTrace();
         }
 
-
     }
 
 
 
 
 
-    public void switchScenes(String fxml) throws IOException {
 
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
-        Stage stage = (Stage) _create.getScene().getWindow();
-
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.sizeToScene();
-    }
-
+    /**
+     * method which switches scene to the main menu scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void MainMenu(){
         Platform.runLater(new Multi() {
             @Override
@@ -302,6 +323,9 @@ public void Save() {
         });
     }
 
+    /**
+     * helper class to aid in switching scenes.
+     */
     public class Multi implements Runnable {
 
         @Override
@@ -310,13 +334,15 @@ public void Save() {
         }
     }
 
+    /**
+     * a helper class to implement concurrency and run the wikit search terms.
+     */
     public class Multi1 implements Runnable{
 
         @Override
         public void run() {
             String command = "wikit " + term + "| sed -e :1 -e 's/\\([.?!]\\)[[:blank:]]\\{1,\\}\\([^[:blank:]]\\)/\\1\\\n" +
                     "\\2/;t1' ";
-//        pbuild(command);
 
             try {
                 ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
@@ -357,6 +383,9 @@ public void Save() {
     }
 
 
+    /**
+     * method connected to the merge button which merges two different audio files and generates a merged version of them.
+     */
     public void merge() {
 
 
@@ -419,7 +448,9 @@ public void Save() {
 
     }
 
-
+    /**
+     * method connected to the delete button which deleted the selected audio that has already been created.
+     */
     public void delete(){
 
         if(!_list.getSelectionModel().getSelectedItem().toString().isEmpty()) {
@@ -451,6 +482,9 @@ public void Save() {
     }
 
 
+    /**
+     * play method which is connected to the preview method and plays the preselected text.
+     */
     public void Play(){
 
 

@@ -40,7 +40,10 @@ public class Play {
 //    File file = new File("/afs/ec.auckland.ac.nz/users/m/s/msid633/unixhome/IdeaProjects/se206A3/car.au/car.mkv");
 
 
-
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * the things initialised are the list of creations.
+     */
     @FXML
     public void initialize(){
         _list.getItems().clear();
@@ -59,9 +62,10 @@ public class Play {
         }
     }
 
-
+    /**
+     * this method deletes the creation that the user has made. the creations are presented in a list which can then be chosen to delete.
+     */
     public void delete(){
-
 
         if(!_list.getSelectionModel().getSelectedItem().toString().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -85,8 +89,6 @@ public class Play {
                     {
                         e.printStackTrace();
                     }
-
-
                 }
             });
             initialize();
@@ -95,6 +97,10 @@ public class Play {
 
     }
 
+    /**
+     * a helper method which sets up the media player for the selected creation to be played in. this method is called from the play() method
+     * which is multithreaded.
+     */
     public void setMedia(){
         File fileUrl = new File("Creations/"+_list.getSelectionModel().getSelectedItem().toString()+"/"+_list.getSelectionModel().getSelectedItem().toString()+".mp4");
         Media video = new Media(fileUrl.toURI().toString());
@@ -103,6 +109,9 @@ public class Play {
         _view.setMediaPlayer(player);
     }
 
+    /**
+     * the method which is linked to the play button on the scene and plays the required creation,
+     */
     public void play(){
 
         if(player!=null){
@@ -113,7 +122,9 @@ public class Play {
 
     }
 
-
+    /**
+     *  method which switches scene to the playing creations scene. this is done by using the functionality of the SwitchScenes singleton class.
+     */
     public void MainMenu(){
         Platform.runLater(new Multi() {
             @Override
@@ -134,6 +145,9 @@ public class Play {
     }
 
 
+    /**
+     * this class is used to achive concurrency and implements Runnable.
+     */
     public class Multi implements Runnable {
 
         @Override
@@ -142,6 +156,9 @@ public class Play {
         }
     }
 
+    /**
+     * this class is used to achive concurrency and implements Runnable.
+     */
     public class Multi1 implements Runnable{
 
         @Override
@@ -150,6 +167,9 @@ public class Play {
         }
     }
 
+    /**
+     * this method is linked to the pause button and pauses the current running media.
+     */
     public void pause() {
         MediaPlayer.Status status = player.getStatus();
         if(MediaPlayer.Status.PLAYING == status){
@@ -161,6 +181,10 @@ public class Play {
         }
     }
 
+    /**
+     * this method is linked to the Mute button and mutes the current running media.
+     *
+     */
     public void mute(){
         if(player.getVolume() == 0){
             player.setVolume(50);

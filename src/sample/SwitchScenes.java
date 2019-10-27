@@ -11,6 +11,9 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+/**
+ * a class which abstracts the functionality for switching scenes with a transition.
+ */
 public class SwitchScenes {
 
     private Pane _pane;
@@ -21,8 +24,16 @@ public class SwitchScenes {
 
     }
 
+    /**
+     * the generic switch scene method which includes the code which is used in all other classes to switch scenes.
+     * @param fxml the scene to be loaded.
+     * @throws IOException
+     */
     public void switchScenes(String fxml) throws IOException {
 
+        /**
+         * this adds a fade transition when switching the scenes.
+         */
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
         fadeTransition.setNode(_pane);
@@ -42,7 +53,5 @@ public class SwitchScenes {
             }
         });
         fadeTransition.play();
-
-
     }
 }
