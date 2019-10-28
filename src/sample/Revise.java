@@ -147,7 +147,6 @@ public class Revise {
                 next.setDisable(false);
                 wrong.setText("Correct Answer");
             } else {
-                System.out.println("no");
                 confirmButton.setDisable(true);
                 next.setDisable(false);
                 wrong.setText("Wrong Answer");

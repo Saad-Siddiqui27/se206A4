@@ -89,6 +89,13 @@
 /*    -fx-background-color: #4CAF50; !* Green *!*/
 /*    color: white;*/
 /*}*/
+#label2{
+    -fx-text-fill: #fff176;
+    -fx-font-size: 30pt;
+    font-weight: 700;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+}
 
 .borders{
     -fx-border-color: rgba(255, 255, 255, .80);

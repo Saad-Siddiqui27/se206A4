@@ -106,7 +106,7 @@
                            </font>
                         </TextArea>
                         <Label text="Your Saved Audio files" />
-                        <ListView fx:id="_list" prefHeight="284.0" prefWidth="400.0" />
+                        <ListView fx:id="_list" opacity="0.85" prefHeight="284.0" prefWidth="400.0" />
                         <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="364.0" spacing="20.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#Play" opacity="0.84" text="Play">

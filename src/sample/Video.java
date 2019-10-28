@@ -334,7 +334,6 @@ public class Video {
                 params.setText(query);
 
                 PhotoList<Photo> results = photos.search(params, resultsPerPage, page);
-                System.out.println("Retrieving " + results.size() + " results");
                 int i = 1;
 
                 int number = Integer.parseInt(_numpics.getText());
@@ -346,7 +345,6 @@ public class Video {
                             String filename = query + Integer.toString(i) + ".jpg";
                             File outputfile = new File(filename);
                             ImageIO.write(image, "jpg", outputfile);
-                            System.out.println("Downloaded " + filename);
                             i = i + 1;
 
                         } catch (FlickrException | IOException fe) {
