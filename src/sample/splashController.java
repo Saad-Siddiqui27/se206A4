@@ -60,6 +60,10 @@ public class splashController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        /**
+         * code inspired from a youtube. channel name Rashid coder
+         * url: https://www.youtube.com/watch?v=Fy0ZVF7EPC4&t=136s
+         */
         new SplashScreen().start();
         setRotate(c1,true,360,10);
         setRotate(c2,true,180,18);
@@ -69,13 +73,15 @@ public class splashController implements Initializable {
 
     /**
      * Gui concurreny in order to change to the next scene when the splash screen allotted time has finished.
+     * code inspired from youtube channel named Genuine Coder
+     * url: https://www.youtube.com/watch?v=muz6QLIgrC0&t=244s
      */
     public class SplashScreen extends Thread{
 
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(4000);
 
                 Platform.runLater(new Runnable() {
                     @Override
