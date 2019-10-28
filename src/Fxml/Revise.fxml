@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="revise" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
+<AnchorPane fx:id="revise" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Revise.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revise">
    <children>
       <VBox layoutY="150.0" prefHeight="650.0" prefWidth="1200.0">
          <children>

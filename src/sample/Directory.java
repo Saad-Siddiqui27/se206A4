@@ -41,22 +41,6 @@ public class Directory {
     }
 
 
-   public void goInAudioMerge() {
-       if (_directory.getSelectionModel().getSelectedItem() == null) {
-           alert();
-       } else {
-
-           pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
-           SwitchScenes sw = new SwitchScenes(_Audio);
-           try {
-               sw.switchScenes("/Fxml/AudioMerging.fxml");
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
-       }
-    }
-
-
     /**
      * method which switches scene to the Creating video scene. this is done by using the functionality of the SwitchScenes class.
      */
