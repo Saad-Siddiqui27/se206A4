@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="_Menu" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenu">
+<AnchorPane fx:id="_Menu" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Main.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainMenu">
    <children>
-      <VBox alignment="CENTER" layoutX="200.0" layoutY="109.0" prefHeight="617.0" prefWidth="698.0" spacing="150.0">
+      <VBox alignment="CENTER" layoutX="200.0" layoutY="109.0" prefHeight="617.0" prefWidth="698.0" spacing="50.0">
          <children>
             <HBox alignment="CENTER" prefHeight="80.0" prefWidth="383.0" spacing="400.0">
                <children>
@@ -24,7 +24,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToAudio" prefHeight="44.0" prefWidth="181.0" text="Make Creations">
+                  <Button minHeight="150.0" minWidth="200.0" mnemonicParsing="false" onAction="#switchToVideo" prefHeight="44.0" prefWidth="181.0" text="Make Creations">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -33,6 +33,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="label2" text="Let the learning begin!" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="400.0">
@@ -59,18 +64,18 @@
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+      <VBox layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
+      <VBox layoutX="1000.0" layoutY="224.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
+      <VBox layoutX="100.0" layoutY="234.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
+      <VBox layoutX="1100.0" layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
+      <HBox alignment="CENTER" layoutX="430.0" layoutY="2.0" prefHeight="150.0" prefWidth="363.0" style="-fx-background-color: #1565c0;">
          <children>
-            <Label text="VARPEDIA" textFill="#270699">
+            <Label text="VARPEDIA" textFill="#fff176">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="74.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <VBox layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
-      <VBox layoutX="1000.0" layoutY="224.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
-      <VBox layoutX="100.0" layoutY="234.0" prefHeight="388.0" prefWidth="100.0" style="-fx-background-color: red;" />
-      <VBox layoutX="1100.0" layoutY="544.0" prefHeight="256.0" prefWidth="100.0" style="-fx-background-color: yellow;" />
    </children>
 </AnchorPane>

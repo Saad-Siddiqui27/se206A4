@@ -15,8 +15,24 @@
 }
 
 #label1{
-    -fx-text-fill: darkblue;
+    -fx-text-fill: #fff176;
     -fx-font-size: 72pt;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+
+}
+
+#audio{
+    -fx-text-fill: yellow;
+    -fx-font-size: 18pt;
+    -fx-font-family: "DejaVu Sans Mono";
+    -fx-font-style: BOLD;
+
+}
+
+#creations{
+    -fx-text-fill: yellow;
+    -fx-font-size: 18pt;
     -fx-font-family: "DejaVu Sans Mono";
     -fx-font-style: BOLD;
 

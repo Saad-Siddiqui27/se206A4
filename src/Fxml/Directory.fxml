@@ -11,13 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="_Audio" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Directory.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Directory">
+<AnchorPane fx:id="_Audio" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../CSS/Directory.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Directory">
    <children>
       <HBox layoutY="173.0" prefHeight="490.0" prefWidth="1200.0" spacing="500.0">
          <children>
             <VBox prefHeight="205.0" prefWidth="254.0">
                <children>
-                  <ListView fx:id="_directory" opacity="0.65" prefHeight="330.0" prefWidth="195.0" />
+                  <ListView fx:id="_directory" opacity="0.65" prefHeight="591.0" prefWidth="254.0" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
             <VBox prefHeight="205.0" prefWidth="192.0" spacing="100.0">
@@ -48,9 +49,9 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: black;">
+      <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1200.0" style="-fx-background-color: #1565c0;">
          <children>
-            <Text fx:id="label1" fill="#5305f0" strokeType="OUTSIDE" strokeWidth="0.0" text="VARPEDIA">
+            <Text fx:id="label1" fill="#fff176" strokeType="OUTSIDE" strokeWidth="0.0" text="VARPEDIA">
                <font>
                   <Font size="33.0" />
                </font>

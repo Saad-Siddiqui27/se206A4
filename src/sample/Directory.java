@@ -18,7 +18,11 @@ public class Directory {
 
 
 
-
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * this method initialises and populates the list of audio files that are to be used in order to generate a video.
+     *
+     */
     @FXML
     public void initialize() {
 
@@ -36,21 +40,10 @@ public class Directory {
 
     }
 
-   public void goInAudioMerge() {
-       if (_directory.getSelectionModel().getSelectedItem() == null) {
-           alert();
-       } else {
 
-           pbuilder.getInstance().saveTerm(_directory.getSelectionModel().getSelectedItem().toString());
-           SwitchScenes sw = new SwitchScenes(_Audio);
-           try {
-               sw.switchScenes("/Fxml/AudioMerging.fxml");
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
-       }
-    }
-
+    /**
+     * method which switches scene to the Creating video scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void goInVideoCreate() {
         if (_directory.getSelectionModel().getSelectedItem() == null) {
             alert();
@@ -66,7 +59,9 @@ public class Directory {
     }
 
 
-
+    /**
+     * method which switches scene to the main menu scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void switchToMain() {
         Platform.runLater(new Multi() {
             @Override
@@ -82,7 +77,11 @@ public class Directory {
             }
         });
     }
-        public class Multi implements Runnable {
+
+    /**
+     * helper class to implement concurrency
+     */
+    public class Multi implements Runnable {
 
             @Override
             public void run() {
@@ -90,7 +89,10 @@ public class Directory {
             }
         }
 
-        public void alert(){
+    /**
+     * helper alert method which throws appropiate alerts which something goes wrong
+     */
+    public void alert(){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Please choose a directory");
             alert.setTitle("Directory");

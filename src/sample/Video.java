@@ -5,8 +5,11 @@ package sample;
         import com.flickr4java.flickr.REST;
         import com.flickr4java.flickr.photos.*;
         import javafx.application.Platform;
+        import javafx.event.EventHandler;
         import javafx.fxml.FXML;
         import javafx.scene.control.*;
+        import javafx.scene.input.KeyCode;
+        import javafx.scene.input.KeyEvent;
         import javafx.scene.layout.Pane;
 
         import javax.imageio.ImageIO;
@@ -36,104 +39,124 @@ public class Video {
     String query = pbuilder.getInstance().getTerm();
 
 
+    /**
+     * initialise method which initialises the different aspect of the scene when the scene loads up.
+     * this method initialises and populates the list of audio files that are to be used in order to generate a video.
+     * it also initializes and refreshest the list of creations when a creation is made.
+     */
     @FXML
     public void initialize() {
 
-
-
         String s =pbuilder.getInstance().getTerm();
-
-//        pbuilder.getInstance().probuild2("cd "+s+".au");
-
         _list.getItems().clear();
         pbuilder pro = pbuilder.getInstance();
         pro.probuild2("cd \""+s+"\".au; "+"ls *.wav 2> /dev/null");
         List<String> str = pro.getStd();
-
 
         for (int i = 0; i < str.size(); i++) {
             _list.getItems().add(str.get(i).substring(0, str.get(i).length() - 4));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-
         _creationList.getItems().clear();
         pbuilder pro2 = pbuilder.getInstance();
         pro.probuild2("cd Creations/; ls  2> /dev/null");
         List<String> str2 = pro2.getStd();
-
 
         for (int i = 0; i < str2.size(); i++) {
             _creationList.getItems().add(str2.get(i).substring(0, str.get(i).length()));
         }
         _list.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
-
-
-
-        musics.getItems().addAll("Child beat Box","something cool","No music");
+        musics.getItems().clear();
+        musics.getItems().addAll("Jullibie","something cool","No music","wolf instrumental");
         musics.setValue("No music");
 
+        _creationName.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    createVideo();
+                }
+            }
+        });
+
     }
 
-
+    /**
+     * this method is linked to the the create button and creates the video by doing a number of error checks as well.
+     * it sends out an alert message if the appropiate method is not followed.
+     */
     public void createVideo() {
 
-
-        num = _numpics.getText();
-        List<String> n = new ArrayList<>();
-        int m = 1;
-        while(m<=10) {
-            n.add(Integer.toString(m))
-            ;m = m + 1;}
-        if (!n.contains(num)) {
-
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please enter a valid number between 1 and 10");
-            alert.setTitle("Invalid Number");
+        if (_list.getSelectionModel().getSelectedItem()==null) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Please select an audio to create a video of");
+            alert.setTitle("No audio selected");
 
             alert.showAndWait().ifPresent(response -> {
                 if (response == ButtonType.OK) {
 
                 }
             });
-        } else if (_creationName.getText().isEmpty()) {
+        }else {
+            num = _numpics.getText();
+            List<String> n = new ArrayList<>();
+            int m = 1;
+            while (m <= 10) {
+                n.add(Integer.toString(m))
+                ;
+                m = m + 1;
+            }
+            if (!n.contains(num)) {
 
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Please enter a creation name");
-            alert.setTitle("Creation Name not entered");
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("Please enter a valid number between 1 and 10");
+                alert.setTitle("Invalid Number");
 
-            alert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
 
-                }
-            });
-        } else {
+                    }
+                });
+            } else if (_creationName.getText().isEmpty()) {
 
-            Thread object1 = new Thread(new Multi1());
-            object1.start();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setContentText("Please enter a creation name");
+                alert.setTitle("Creation Name not entered");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
+
+                    }
+                });
+            } else {
+
+                Thread object1 = new Thread(new Multi1());
+                object1.start();
 //            initialize();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("your creation has been created");
-            alert.setTitle("Successful");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("your creation has been created");
+                alert.setTitle("Successful");
 
 
-            alert.showAndWait().ifPresent(response -> {
-                if (response == ButtonType.OK) {
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.OK) {
 
 
-                }
-            });
-
-
+                    }
+                });
+            }
         }
-
-
     }
 
 
-
+    /**
+     *
+     * @param time
+     * @throws IOException
+     */
     public void CombineVideo(double time) throws IOException {
 
         int number = Integer.parseInt(_numpics.getText());
@@ -174,9 +197,20 @@ public class Video {
             String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
 
             helpMusic(c, c2);
+        }else if(musics.getValue().equals("wolf instrumental")){
+
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/wolf.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+
+            pbuilder.getInstance().probuild(cmd9);
+
+            String c2 =  "cd "+ query+".au; ffmpeg -i "+query+"revision.mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+"revision.mp4; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+"revision.mp4; rm *.mp3";
+
+            String c =  "cd "+ query+".au; ffmpeg -i "+query+".mp4 -i out.mp3 -vcodec copy -strict -2 " + _creationName.getText()+".mp4; "+ "mkdir ../Creations/"+_creationName.getText()+"; echo "+query+" > term.txt; mv -t ../Creations/"+_creationName.getText()+" term.txt "+_creationName.getText()+".mp4";
+
+            helpMusic(c, c2);
         }else{
 
-            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/beatbox.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
+            String cmd9 = "cd "+ query+".au; ffmpeg -i ../Music/Jullibe.mp3 -i "+ _list.getSelectionModel().getSelectedItem() +".wav -filter_complex amerge=inputs=2 -ac 2 out.mp3";
 
             pbuilder.getInstance().probuild(cmd9);
 
@@ -204,9 +238,12 @@ public class Video {
     }
 
 
-
-
-
+    /**
+     * gets the specified flickr keys of the user by reading the file.
+     * @param key
+     * @return
+     * @throws Exception
+     */
     private static String getAPIKey(String key) throws Exception {
         // TODO fix the following based on where you will have your config file stored
 
@@ -225,30 +262,30 @@ public class Video {
         br.close();
         throw new RuntimeException("Couldn't find " + key + " in config file " + file.getName());
 
-//finish
-
     }
 
 
-
+    /**
+     * this method switches back to the previous scene.
+     */
     public void switchBack() {
         Platform.runLater(new Multi() {
             @Override
             public void run() {
                 SwitchScenes sw = new SwitchScenes(_Video);
-
                 try {
                     sw.switchScenes("/Fxml/Directory.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
 
 
-
+    /**
+     *  method which switches scene to the main menu scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void switchToMain() {
         Platform.runLater(new Multi() {
             @Override
@@ -260,7 +297,6 @@ public class Video {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
@@ -273,6 +309,11 @@ public class Video {
         }
     }
 
+    /**
+     * helper class to implement GUI concurrency.
+     * in the run method the pictures are retrieved form flickr.
+     * Code was taken from ACP and any neccary changes were done to it in order to make it meet our demands.
+     */
     public class Multi1 implements Runnable {
 
         @Override
@@ -282,7 +323,6 @@ public class Video {
                 String sharedSecret = getAPIKey("sharedSecret");
 
                 Flickr flickr = new Flickr(apiKey, sharedSecret, new REST());
-
 
                 String query = pbuilder.getInstance().getTerm();
                 System.out.println(query);
@@ -296,7 +336,6 @@ public class Video {
                 params.setText(query);
 
                 PhotoList<Photo> results = photos.search(params, resultsPerPage, page);
-                System.out.println("Retrieving " + results.size() + " results");
                 int i = 1;
 
                 int number = Integer.parseInt(_numpics.getText());
@@ -308,7 +347,6 @@ public class Video {
                             String filename = query + Integer.toString(i) + ".jpg";
                             File outputfile = new File(filename);
                             ImageIO.write(image, "jpg", outputfile);
-                            System.out.println("Downloaded " + filename);
                             i = i + 1;
 
                         } catch (FlickrException | IOException fe) {
@@ -322,14 +360,14 @@ public class Video {
                 String cmd5 = "mv *.jpg " + query + ".au";
                 pbuilder.getInstance().probuild(cmd5);
 
-//                File f = new File(_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 pbuilder.getInstance().probuild2("cd "+ query+".au;" +" soxi -D "+_list.getSelectionModel().getSelectedItem().toString()+".wav");
                 List<String> time1 = pbuilder.getInstance().getStd();
                 Double time = Double.parseDouble( time1.get(0));
                 System.out.println("time ="+time);
 
-
                 CombineVideo(time);
+
+                //this code refreshes the scene to update it to present new information.
                 Platform.runLater(new Multi() {
                     @Override
                     public void run() {
@@ -337,18 +375,11 @@ public class Video {
                     }
                 });
 
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-
-
-
         }
-
-
 
     }
 }

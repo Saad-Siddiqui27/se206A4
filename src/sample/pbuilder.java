@@ -7,16 +7,24 @@ import java.util.List;
 
 public class pbuilder {
 
-    private String _cmd;
+//    private String _cmd;
+
+    // a static field as the variable refers to singleton class object
     private static pbuilder _instance;
 
     private static List<String> _stdOut = new ArrayList<String>();
-    private static int num;
+//    private static int num;
     private String _term ;
 
-
+    /**
+     * a constructor for the singleton class which returns the same object whenever new object is created.
+     */
     private pbuilder() {}
 
+    /**
+     * singleton class generator which returns the same object of the class
+     * @return pbuilder object
+     */
     public static pbuilder getInstance() {
         if (_instance == null) {
             _instance = new pbuilder();
@@ -26,6 +34,11 @@ public class pbuilder {
     }
 
 
+    /**
+     * a method which runs the linux commands and returns nothing.
+     * @param _cmd is the string of linux command to be run.
+     *
+     */
         public void probuild(String _cmd) {
             try {
                 ProcessBuilder pb = new ProcessBuilder("bash", "-c", _cmd);
@@ -39,7 +52,11 @@ public class pbuilder {
             }
         }
 
-        public void probuild2(String _cmd){
+    /**
+     * method which returns the output generated when a linux bash command is run.
+     * @param _cmd the command to be run.
+     */
+    public void probuild2(String _cmd){
 
             try {
 
@@ -50,9 +67,6 @@ public class pbuilder {
 
                 BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-
-
 
                 int exitStatus = process.waitFor();
 
@@ -71,8 +85,6 @@ public class pbuilder {
                         System.err.println(line);
                     }
                 }
-
-
                 stdout.close();
                 stderr.close();
 
@@ -82,20 +94,31 @@ public class pbuilder {
                 e.printStackTrace();
             }
 
-
         }
 
+    /**
+     * getter method which gets the output generated when the bash command is processed.
+     * @return a list of Strings which is the output of the linux command
+     */
     public static List<String> getStd() {
         return _stdOut;
     }
 
 
+    /**
+     * setter method which saves a term for future use
+     * @param str term to be saved
+     */
     public void saveTerm(String str){
         _term = str;
 
     }
 
 
+    /**
+     * getter method which returns the term
+     * @return A string which is the saved term.
+     */
     public String getTerm(){
         return _term;
 
