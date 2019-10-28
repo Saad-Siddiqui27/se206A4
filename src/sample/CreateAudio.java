@@ -286,6 +286,11 @@ public class CreateAudio {
 
     }
 
+
+    /**
+     * a helper method which reduces code duplication and carries out all bash commands trough the process builder.
+     * @param cmd
+     */
     public void pbuild(String cmd){
         try {
             ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);

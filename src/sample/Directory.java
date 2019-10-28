@@ -57,7 +57,9 @@ public class Directory {
     }
 
 
-
+    /**
+     * method which switches scene to the Creating video scene. this is done by using the functionality of the SwitchScenes class.
+     */
     public void goInVideoCreate() {
         if (_directory.getSelectionModel().getSelectedItem() == null) {
             alert();

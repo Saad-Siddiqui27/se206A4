@@ -48,8 +48,6 @@ public class splashController implements Initializable {
         rt.setRate(3);
         rt.setCycleCount(18);
         rt.play();
-
-
     }
 
     /**
@@ -73,7 +71,7 @@ public class splashController implements Initializable {
 
     /**
      * Gui concurreny in order to change to the next scene when the splash screen allotted time has finished.
-     * code inspired from youtube channel named Genuine Coder
+     * this code was inspired from youtube channel named Genuine Coder
      * url: https://www.youtube.com/watch?v=muz6QLIgrC0&t=244s
      */
     public class SplashScreen extends Thread{

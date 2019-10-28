@@ -91,7 +91,7 @@ public class Revise {
     }
 
     /**
-     * this is a helper method which sets up the media for the randomly selected quiz to be played.
+     * this is a helper method which sets up the media for the randomly selected creations so that the quiz can be played.
      */
     private File file;
     public void setMedia(){

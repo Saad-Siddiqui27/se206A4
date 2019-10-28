@@ -39,9 +39,7 @@ public class MainMenu {
      */
     public void switchToVideo() {
 
-
         SwitchScenes sw = new SwitchScenes(_Menu);
-
 
         try {
             sw.switchScenes("/Fxml/Directory.fxml");

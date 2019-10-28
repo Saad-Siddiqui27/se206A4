@@ -265,7 +265,9 @@ public class Video {
     }
 
 
-
+    /**
+     * this method switches back to the previous scene.
+     */
     public void switchBack() {
         Platform.runLater(new Multi() {
             @Override
@@ -309,7 +311,8 @@ public class Video {
 
     /**
      * helper class to implement GUI concurrency.
-     * in the run method the pictures are retrieved form flickr and
+     * in the run method the pictures are retrieved form flickr.
+     * Code was taken from ACP and any neccary changes were done to it in order to make it meet our demands.
      */
     public class Multi1 implements Runnable {
 
@@ -320,7 +323,6 @@ public class Video {
                 String sharedSecret = getAPIKey("sharedSecret");
 
                 Flickr flickr = new Flickr(apiKey, sharedSecret, new REST());
-
 
                 String query = pbuilder.getInstance().getTerm();
                 System.out.println(query);
@@ -363,8 +365,9 @@ public class Video {
                 Double time = Double.parseDouble( time1.get(0));
                 System.out.println("time ="+time);
 
-
                 CombineVideo(time);
+
+                //this code refreshes the scene to update it to present new information.
                 Platform.runLater(new Multi() {
                     @Override
                     public void run() {

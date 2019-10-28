@@ -111,6 +111,7 @@ public class Play {
 
     /**
      * the method which is linked to the play button on the scene and plays the required creation,
+     * the player is set up in a seperate thread so that the GUI thread has no effect and keeps on running smoothly
      */
     public void play(){
 
@@ -124,6 +125,7 @@ public class Play {
 
     /**
      *  method which switches scene to the playing creations scene. this is done by using the functionality of the SwitchScenes singleton class.
+     *  Platform.runlater method used to carry out the Gui part.
      */
     public void MainMenu(){
         Platform.runLater(new Multi() {
@@ -168,7 +170,8 @@ public class Play {
     }
 
     /**
-     * this method is linked to the pause button and pauses the current running media.
+     * this method is linked to the pause button and pauses the current running media,
+     * and changes the text of the button accordingly
      */
     public void pause() {
         MediaPlayer.Status status = player.getStatus();
@@ -182,7 +185,8 @@ public class Play {
     }
 
     /**
-     * this method is linked to the Mute button and mutes the current running media.
+     * this method is linked to the Mute button and mutes the current running media,
+     * and changes the text of the button accordingly
      *
      */
     public void mute(){

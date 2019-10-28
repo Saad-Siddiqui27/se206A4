@@ -33,6 +33,8 @@ public class SwitchScenes {
 
         /**
          * this adds a fade transition when switching the scenes.
+         * code inspired by youtube channel named Genuine Coder.
+         * url: https://www.youtube.com/watch?v=rMQrXSYHl8w&t=574s
          */
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
